@@ -3,16 +3,14 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  Text, TouchableOpacity,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
   Colors,
   Header,
 } from 'react-native/Libraries/NewAppScreen';
-import log from './src/utils/logger.ts';
+import MainContainer from '@components/Main/MainContainer';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,14 +29,7 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-         <TouchableOpacity onPress={()=> log.debug('tag', 'Hellow niger')}>
-           <Text>Hello World!</Text>
-         </TouchableOpacity>
-        </View>
+     <MainContainer/>
       </ScrollView>
     </SafeAreaView>
   );
