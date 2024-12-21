@@ -1,14 +1,12 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   useColorScheme,
 } from 'react-native';
 
 import {
   Colors,
-  Header,
 } from 'react-native/Libraries/NewAppScreen';
 import MainContainer from '@components/Main/MainContainer';
 
@@ -25,12 +23,7 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
      <MainContainer/>
-      </ScrollView>
     </SafeAreaView>
   );
 }

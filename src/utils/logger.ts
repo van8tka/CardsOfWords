@@ -1,15 +1,31 @@
-import { logger, consoleTransport } from 'react-native-logs';
+import {logger, consoleTransport, crashlyticsTransport} from 'react-native-logs';
+import crashlytics from '@react-native-firebase/crashlytics';
+
+const InteractionManager = require('react-native').InteractionManager;
+const crashlyticsModule = crashlytics();
 
 const log = logger.createLogger({
+  async: true,
+  asyncFunc: InteractionManager.runAfterInteractions,
   levels: {
     debug: 0,
     info: 1,
     warn: 2,
     error: 3,
   },
-  severity: 'debug',
-  transport: consoleTransport,
+  severity: __DEV__ ? 'debug' : 'info',
+  transport: __DEV__ ? consoleTransport : crashlyticsTransport,
   transportOptions: {
+    CRASHLYTICS: {
+      recordError(msg) {
+        if(msg.includes('error')) {
+          crashlyticsModule.recordError(new Error(msg));
+        }
+        else {
+          crashlyticsModule.log(msg);
+        }
+      },
+    },
     colors: {
       debug: 'greenBright',
       info: 'blueBright',
@@ -17,7 +33,6 @@ const log = logger.createLogger({
       error: 'redBright',
     },
   },
-  async: true,
   printLevel: true,
   fixedExtLvlLength: false,
   enabled: true,
@@ -30,7 +45,7 @@ function getDateLogFormat(): string {
   const addedZero = (timeNumber: number) => (timeNumber < 10) ? `0${timeNumber}` : String(timeNumber);
   const time = `${addedZero(dt.getHours())}:${addedZero(dt.getMinutes())}:${addedZero(dt.getSeconds())}.${addedZero(dt.getMilliseconds())}`;
 
-  if(__DEV__) return time;
+  if(__DEV__) {return time;}
 
   return `${date}:${time}`;
 }
