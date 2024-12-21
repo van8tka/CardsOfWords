@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "197917761798",
+    "firebase_url": "https://cardsofwords.firebaseio.com",
+    "project_id": "cardsofwords",
+    "storage_bucket": "cardsofwords.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197917761798:android:f22e2ca7d0cb6b2c",
+        "android_client_info": {
+          "package_name": "cardsofwords.cardsofwords"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197917761798-qqgd5bg3kieinjmlvl81bl3h7u0kd22u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cardsofwords.cardsofwords",
+            "certificate_hash": "9b46bf44900612889869d79b210ea9083f1ebaee"
+          }
+        },
+        {
+          "client_id": "197917761798-4spj3g78rsvjr8h3930mmp1ieds4lsbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv817TYGgkFhRiY6sZoyYrhQyIy8z5PfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197917761798-4spj3g78rsvjr8h3930mmp1ieds4lsbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
