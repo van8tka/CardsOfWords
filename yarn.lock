@@ -6188,6 +6188,11 @@ react-is@^18.0.0, react-is@^18.3.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
+react-native-localize@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-3.3.0.tgz#aa40c9e15262bd7295b4b73bc7fcb9b01c1afbf3"
+  integrity sha512-pbxiL0sL9hv3dRRcDRHEcsLGfuQavFfsK0dK5RNVjmTI8x3hiojRJHcppzqKOAUjZusehbA7Hnzdjz/7LkZsgw==
+
 react-native-logs@^5.3.0:
   version "5.3.0"
   resolved "https://registry.npmjs.org/react-native-logs/-/react-native-logs-5.3.0.tgz"

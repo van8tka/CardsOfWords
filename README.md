@@ -16,4 +16,4 @@ yarn start
 - log (rn-logs)with fb crashlytics
 - fb analytics
 - white/dark theme
-- eng/ru localization
+- eng/ru localization (rn-localize)

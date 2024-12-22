@@ -9,6 +9,7 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import MainContainer from '@components/Main/MainContainer';
+import {LocalizationProvider} from '@utils/localization/LocalizationContext';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,7 +24,9 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-     <MainContainer/>
+      <LocalizationProvider>
+        <MainContainer/>
+      </LocalizationProvider>
     </SafeAreaView>
   );
 }
