@@ -16,6 +16,8 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CDEBAA0FBAC3F49A197E261F /* Pods_CardsOfWords_CardsOfWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E06D77F8F19A044891DD99C /* Pods_CardsOfWords_CardsOfWordsTests.framework */; };
 		FBFBC48D606E020A58C6498E /* Pods_CardsOfWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED35A22567AA4B57F787BBCE /* Pods_CardsOfWords.framework */; };
+		DEB01CA8C5374802A58B4DCB /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F47C7D5C9A9488E9171D89E /* BootSplash.storyboard */; };
+		822ECDA86F8C4122B6E3B28C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D109E42583440F9922F1EE3 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-CardsOfWords-CardsOfWordsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardsOfWords-CardsOfWordsTests.release.xcconfig"; path = "Target Support Files/Pods-CardsOfWords-CardsOfWordsTests/Pods-CardsOfWords-CardsOfWordsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED35A22567AA4B57F787BBCE /* Pods_CardsOfWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardsOfWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F47C7D5C9A9488E9171D89E /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "CardsOfWords/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7D109E42583440F9922F1EE3 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "CardsOfWords/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				1F47C7D5C9A9488E9171D89E /* BootSplash.storyboard */,
+				7D109E42583440F9922F1EE3 /* Colors.xcassets */,
 			);
 			name = CardsOfWords;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 				2C59C5952D17CE7400B26DFC /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				31EBF2A9405F3E8C3A04BEFC /* PrivacyInfo.xcprivacy in Resources */,
+				DEB01CA8C5374802A58B4DCB /* BootSplash.storyboard in Resources */,
+				822ECDA86F8C4122B6E3B28C /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
