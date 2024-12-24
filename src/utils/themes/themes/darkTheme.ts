@@ -1,10 +1,11 @@
 import {ITheme} from '@utils/themes/ITheme';
+import commonTheme from '@utils/themes/themes/commonTheme';
 
 const darkTheme: ITheme = {
-  primaryColor: '#000000',
-  secondaryColor: '#01ff88',
-  textPrimaryColor: '#ffffff',
-  textSecondaryColor: '#fff333',
+  primaryColor: commonTheme.primaryColor,
+  secondaryColor: '#333333',
+  textPrimaryColor: commonTheme.primaryColor,
+  textSecondaryColor: '#ffffff',
 };
 
 export default darkTheme;

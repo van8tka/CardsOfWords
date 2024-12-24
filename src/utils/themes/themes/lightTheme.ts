@@ -1,10 +1,11 @@
 import {ITheme} from '@utils/themes/ITheme';
+import commonTheme from '@utils/themes/themes/commonTheme';
 
 const lightTheme: ITheme = {
-  primaryColor: '#ffffff',
-  secondaryColor: '#010088',
-  textPrimaryColor: '#000000',
-  textSecondaryColor: '#000333',
+  primaryColor: commonTheme.primaryColor,
+  secondaryColor: '#ffffff',
+  textPrimaryColor: commonTheme.primaryColor,
+  textSecondaryColor: '#333333',
 };
 
 export default lightTheme;

@@ -1,38 +1,37 @@
 import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-} from 'react-native';
-
-import MainContainer from '@components/Main/MainContainer';
+import { StatusBar } from 'react-native';
 import { LocalizationProvider } from '@utils/localization/LocalizationContext';
 import { ThemeProvider } from '@utils/themes/ThemeContext';
 import BootSplash from 'react-native-bootsplash';
+import {NavigationContainer} from '@react-navigation/native';
+import commonTheme from '@utils/themes/themes/commonTheme';
+import AppStackNav from './src/navigators/AppStackNav';
 
 function App(): React.JSX.Element {
 
   useEffect(() => {
     const init = async () => {
       //todo any async load operations
-       setTimeout(()=>{}, 1400);
+      setTimeout(() => {
+      }, 1400);
     };
 
     init().finally(async () => {
-      await BootSplash.hide({ fade: true });
+      await BootSplash.hide({fade: true});
     });
   }, []);
 
   return (
-    <ThemeProvider>
-      <SafeAreaView >
+    <NavigationContainer>
+      <ThemeProvider>
         <StatusBar
-      //    barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={commonTheme.primaryColor}
         />
         <LocalizationProvider>
-          <MainContainer/>
+          <AppStackNav/>
         </LocalizationProvider>
-      </SafeAreaView>
-    </ThemeProvider>
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
 
