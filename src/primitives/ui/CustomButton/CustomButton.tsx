@@ -9,7 +9,7 @@ interface IButtonProps {
   titleStyle?: TextStyle;
 }
 
-function Button({onPress,onLongPress,title, containerStyle, titleStyle} : IButtonProps) {
+function CustomButton({onPress,onLongPress,title, containerStyle, titleStyle} : IButtonProps) {
   return <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
     <View style={[containerStyle, { padding: 20}]}>
       <Text style={titleStyle}>{title}</Text>
@@ -17,4 +17,4 @@ function Button({onPress,onLongPress,title, containerStyle, titleStyle} : IButto
   </TouchableOpacity>;
 }
 
-export default Button;
+export default CustomButton;

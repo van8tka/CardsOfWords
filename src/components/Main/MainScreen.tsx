@@ -1,11 +1,12 @@
-import {View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import log from '@utils/logger.ts';
-import Button from '../../primitives/ui/Button/Button';
+import CustomButton from '../../primitives/ui/CustomButton/CustomButton';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {useThemes} from '@utils/themes/ThemeContext';
 import {useNavigation} from '@react-navigation/native';
 import {AppStackNavScreens} from '../../navigators/screens';
 import React from 'react';
+import MainHeaderContainer from '@components/Main/Header/MainHeaderContainer';
 
 
 function MainScreen() {
@@ -16,16 +17,20 @@ function MainScreen() {
   log.debug('MainScreen', 'begin');
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff', width: 200, height: 300 }}>
-     <Button
-       titleStyle={{color: theme.textSecondaryColor}}
-       containerStyle={{backgroundColor: theme.primaryColor}}
-       onPress={()=>{
-         nav.navigate(AppStackNavScreens.SettingsScreen as never);
-         }}
-       title={localizedStrings.pushMe}
-     />
-  </View>);
+    <View style={{ flex: 1 }}>
+      <MainHeaderContainer />
+      <View style={styles.container}>
+        <Text>Details Screen</Text>
+      </View>
+    </View>);
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default MainScreen;
