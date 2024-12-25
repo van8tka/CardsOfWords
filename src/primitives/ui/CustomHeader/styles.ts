@@ -8,12 +8,12 @@ export const styles = (theme: ITheme) =>{
       alignItems: 'center',
       justifyContent: 'space-between',
       height: '60@vs',
-      paddingHorizontal: '20@s',
       backgroundColor: theme.primaryColor,
     },
     title: {
+      flex: 1,
       color: theme.textSecondaryColor,
-      fontSize: '20@s',
+      fontSize: '17@s',
     },
   });
 };

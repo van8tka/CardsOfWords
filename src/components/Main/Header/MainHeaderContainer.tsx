@@ -4,9 +4,11 @@ import {useLocalization} from '@utils/localization/LocalizationContext';
 import {styles} from '@components/Main/Header/styles';
 import {useThemes} from '@utils/themes/ThemeContext';
 import IconButton from '../../../primitives/ui/IconButton/IconButton';
-import Gear from '@assets/icons/gear.svg';
+import GearIcon from '@assets/icons/gear_icon.svg';
 import {useNavigation} from '@react-navigation/native';
 import {AppStackNavScreens} from '../../../navigators/screens';
+import HeartIcon from '@assets/icons/heart_icon.svg';
+import QuestionIcon from '@assets/icons/question_icon.svg';
 
 
 const MainHeaderContainer = () => {
@@ -20,15 +22,13 @@ const MainHeaderContainer = () => {
   };
 
 
-
+  //todo kuzmuk need implement it
   return (
     <View style={styles(theme).header}>
       <Text style={styles(theme).title}>{localizeStr.appName}</Text>
-       <IconButton IconSvg={Gear} onPress={onPressSettings} height={24} width={24} />
-
-      //todo kuzmuk need implement it
-      {/*<IconButton IconSvg={GearIcon} onPress={()=>{}} />*/}
-      {/*<IconButton IconSvg={GearIcon} onPress={()=>{}} />*/}
+      <IconButton IconSvg={GearIcon} onPress={onPressSettings} height={24} width={24} />
+      <IconButton IconSvg={HeartIcon} onPress={()=>{} } height={28} width={28}  />
+      <IconButton IconSvg={QuestionIcon} onPress={()=>{}} height={28} width={28}  />
     </View>
   );
 };

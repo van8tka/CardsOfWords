@@ -5,6 +5,8 @@ import {AppStackNavScreens} from './screens';
 import React from 'react';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import CustomHeader from '../primitives/ui/CustomHeader/CustomHeader';
+import LeftBackIcon from '@assets/icons/left_back_icon.svg';
+import CheckIcon from '@assets/icons/check_icon.svg';
 
 function AppStackNav () {
   const Stack = createNativeStackNavigator();
@@ -19,7 +21,13 @@ function AppStackNav () {
     if(route.name === AppStackNavScreens.MainScreen) {
       return null;
     }
-    return <CustomHeader title={options.title} onPressLeft={()=> navigation.goBack()} />;
+    return <CustomHeader
+      title={options.title}
+      onPressLeft={() => navigation.goBack()}
+      leftBtnIcon={LeftBackIcon}
+      onPressRight={() => {}}
+      rightBtnIcon={CheckIcon}
+    />;
   }
 
   return(

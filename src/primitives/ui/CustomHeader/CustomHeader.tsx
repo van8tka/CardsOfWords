@@ -22,10 +22,11 @@ const CustomHeader = ({
   const theme = useThemes();
   return (
     <View style={styles(theme).header}>
-      {leftBtnIcon && <IconButton IconSvg={leftBtnIcon} onPress={onPressLeft} />}
+      {leftBtnIcon && <IconButton IconSvg={leftBtnIcon} onPress={onPressLeft} height={28} width={32}/>}
       <Text style={styles(theme).title}>{title || ''}</Text>
-      {rightBtnIcon && <IconButton IconSvg={rightBtnIcon} onPress={onPressRight} />}
+      {rightBtnIcon && <IconButton IconSvg={rightBtnIcon} onPress={onPressRight} height={32} width={32}/>}
     </View>
   );
-                        }
+};
+
 export default CustomHeader;
