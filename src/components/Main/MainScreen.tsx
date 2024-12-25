@@ -1,17 +1,9 @@
 import {StyleSheet, Text, View} from 'react-native';
 import log from '@utils/logger.ts';
-import CustomButton from '../../primitives/ui/CustomButton/CustomButton';
-import {useLocalization} from '@utils/localization/LocalizationContext';
-import {useThemes} from '@utils/themes/ThemeContext';
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import MainHeaderContainer from '@components/Main/Header/MainHeaderContainer';
-
+import MainFloatingBtnContainer from '@components/Main/FloatingBtnContainer/MainFloatingBtnContainer';
 
 function MainScreen() {
-  const localizedStrings = useLocalization();
-  const theme = useThemes();
-  const nav = useNavigation();
 
   log.debug('MainScreen', 'begin');
 
@@ -21,6 +13,7 @@ function MainScreen() {
       <View style={styles.container}>
         <Text>Main Screen</Text>
       </View>
+      <MainFloatingBtnContainer onAddPress={()=>{}} onUploadPress={()=>{}}/>
     </View>);
 }
 
