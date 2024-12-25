@@ -1,4 +1,5 @@
-export enum AppStackNavScreens {
+export enum RouteScreensEnum {
   MainScreen = 'MainScreen',
   SettingsScreen='SettingsScreen',
+  AboutScreen = 'AboutScreen',
 }

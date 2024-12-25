@@ -5,7 +5,7 @@ const ru: ILocalizedStrings = {
   settingsScreen: 'Настройки',
   pushMe: 'Нажми на меня',
   onPress: 'Он нажал на меня',
-  //image: require('../assets/image_en.png'),
+  aboutScreen: 'О приложении',
 };
 
 export default ru;

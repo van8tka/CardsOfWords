@@ -5,7 +5,7 @@ const en: ILocalizedStrings = {
   settingsScreen: 'Settings',
   pushMe: 'Push Me',
   onPress: 'On Pressed to Me',
-  //image: require('../assets/image_en.png'),
+  aboutScreen: 'About app',
 };
 
 export default en;

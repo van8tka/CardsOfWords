@@ -4,7 +4,6 @@ import CustomButton from '../../primitives/ui/CustomButton/CustomButton';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {useThemes} from '@utils/themes/ThemeContext';
 import {useNavigation} from '@react-navigation/native';
-import {AppStackNavScreens} from '../../navigators/screens';
 import React from 'react';
 import MainHeaderContainer from '@components/Main/Header/MainHeaderContainer';
 
@@ -18,9 +17,9 @@ function MainScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      <MainHeaderContainer />
+      {/*<MainHeaderContainer />*/}
       <View style={styles.container}>
-        <Text>Details Screen</Text>
+        <Text>Main Screen</Text>
       </View>
     </View>);
 }

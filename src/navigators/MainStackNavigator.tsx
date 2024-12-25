@@ -1,14 +1,13 @@
 import {createNativeStackNavigator, NativeStackHeaderProps} from '@react-navigation/native-stack';
 import MainScreen from '@components/Main/MainScreen';
-import SettingsScreen from '@components/Settings/SettingsScreen';
-import {AppStackNavScreens} from './screens';
+import {RouteScreensEnum} from './screens';
 import React from 'react';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import CustomHeader from '../primitives/ui/CustomHeader/CustomHeader';
 import LeftBackIcon from '@assets/icons/left_back_icon.svg';
 import CheckIcon from '@assets/icons/check_icon.svg';
 
-function AppStackNav () {
+function MainStackNavigator () {
   const Stack = createNativeStackNavigator();
   const localizedStrings = useLocalization();
 
@@ -18,7 +17,7 @@ function AppStackNav () {
                             route,
                           }: NativeStackHeaderProps) {
 
-    if(route.name === AppStackNavScreens.MainScreen) {
+    if(route.name === RouteScreensEnum.MainScreen) {
       return null;
     }
     return <CustomHeader
@@ -31,18 +30,13 @@ function AppStackNav () {
   }
 
   return(
-    <Stack.Navigator initialRouteName={AppStackNavScreens.MainScreen} screenOptions={{header: headerFunction}}>
+    <Stack.Navigator initialRouteName={RouteScreensEnum.MainScreen} screenOptions={{header: headerFunction}}>
         <Stack.Screen
-          name={AppStackNavScreens.MainScreen}
+          name={RouteScreensEnum.MainScreen}
           component={MainScreen}
         />
-      <Stack.Screen
-        name={AppStackNavScreens.SettingsScreen}
-        component={SettingsScreen}
-        options={{title: localizedStrings.settingsScreen}}
-      />
     </Stack.Navigator>
   );
 }
 
-export default AppStackNav;
+export default MainStackNavigator;

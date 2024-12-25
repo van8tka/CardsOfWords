@@ -5,9 +5,9 @@ import { ThemeProvider } from '@utils/themes/ThemeContext';
 import BootSplash from 'react-native-bootsplash';
 import {NavigationContainer} from '@react-navigation/native';
 import commonTheme from '@utils/themes/themes/commonTheme';
-import AppStackNav from './src/navigators/AppStackNav';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from './App.styles';
+import DrawerNavigator from './src/navigators/DrawerNavigator';
 
 
 function App(): React.JSX.Element {
@@ -35,7 +35,7 @@ function App(): React.JSX.Element {
         <LocalizationProvider>
           <SafeAreaProvider>
           <SafeAreaView style={styles.container}>
-            <AppStackNav/>
+            <DrawerNavigator/>
           </SafeAreaView>
             </SafeAreaProvider>
         </LocalizationProvider>

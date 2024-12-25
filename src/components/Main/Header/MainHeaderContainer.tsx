@@ -6,7 +6,7 @@ import {useThemes} from '@utils/themes/ThemeContext';
 import IconButton from '../../../primitives/ui/IconButton/IconButton';
 import GearIcon from '@assets/icons/gear_icon.svg';
 import {useNavigation} from '@react-navigation/native';
-import {AppStackNavScreens} from '../../../navigators/screens';
+import {RouteScreensEnum} from '../../../navigators/screens';
 import HeartIcon from '@assets/icons/heart_icon.svg';
 import QuestionIcon from '@assets/icons/question_icon.svg';
 
@@ -18,7 +18,7 @@ const MainHeaderContainer = () => {
   const navigation = useNavigation();
 
   const onPressSettings = () => {
-    navigation.navigate(AppStackNavScreens.SettingsScreen as never);
+    navigation.navigate(RouteScreensEnum.SettingsScreen as never);
   };
 
 
