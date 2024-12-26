@@ -4,4 +4,6 @@ export interface ITheme {
   textPrimaryColor: string;
   textSecondaryColor: string;
   drawerColor: string;
+  primaryColorTransparent: string;
+  headerColor: string;
 }

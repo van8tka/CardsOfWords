@@ -3,10 +3,12 @@ import commonTheme from '@utils/themes/themes/commonTheme';
 
 const darkTheme: ITheme = {
   primaryColor: commonTheme.primaryColor,
-  secondaryColor: commonTheme.secondaryColor,
+  secondaryColor: '#333333',
   textPrimaryColor: commonTheme.primaryColor,
   textSecondaryColor: '#ffffff',
   drawerColor: '#4c4f4d',
+  primaryColorTransparent: commonTheme.primaryColorTransparent,
+  headerColor: commonTheme.headerColor,
 };
 
 export default darkTheme;

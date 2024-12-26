@@ -1,6 +1,6 @@
  type Word = {
   id: number;
-  idDictionary: number;
+  idTheme: number;
   //was EngWord
   foreign: string;
    //was RusWord

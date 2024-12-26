@@ -24,7 +24,7 @@ const DrawerNavigator = () => {
         headerStyle: {
           backgroundColor: theme.primaryColor,
         },
-        headerTintColor: theme.secondaryColor,
+        headerTintColor: theme.headerColor,
         drawerActiveTintColor:  theme.primaryColor,
         drawerInactiveTintColor: theme.textSecondaryColor,
         drawerLabelStyle: {

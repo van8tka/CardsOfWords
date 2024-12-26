@@ -1,6 +1,7 @@
 const commonTheme = {
  primaryColor: '#40d47f',
- secondaryColor: '#ffffff',
+ primaryColorTransparent: '#40d47f59',
+ headerColor: '#ffffff',
 };
 
 export default commonTheme;
