@@ -9,7 +9,6 @@ const styles = (theme: ITheme) => {
     itemContainer:{
       paddingLeft: '8@s',
       paddingVertical: '12@s',
-      flex: 1,
       flexDirection: 'row',
       justifyContent:'space-between',
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import ThemeOfWords from '../../../../models/ThemeOfWords';
 import {ITheme} from '@utils/themes/ITheme';
 import styles from './styles';
@@ -13,9 +13,9 @@ interface IItemContentProps {
 function ItemContainer({theme, themeWord}: IItemContentProps) {
 
   // @ts-ignore
-  const renderItem = ({item}) => {
+  const renderItem = (item: ThemeOfWords) => {
     return (
-      <TouchableOpacity key={item.id} onPress={() => console.log('+++++++ PRESS: ',item)}>
+      <TouchableOpacity key={`${item.id}, ${item.idDictionary}`} onPress={() => console.log('+++++++ PRESS: ',item)}>
         <View style={styles(theme).itemContainer}>
           <Text style={styles(theme).title}>{item.name}</Text>
           <Text style={styles(theme).percent}>{percentFormatter(item.percentOfLearned)}</Text>
@@ -26,8 +26,8 @@ function ItemContainer({theme, themeWord}: IItemContentProps) {
 
   return (
     <View style={styles(theme).accordBody}>
-      <FlatList data={themeWord} renderItem={renderItem}/>  {}
-    </View>
+      {themeWord.map((item) => renderItem(item))}
+          </View>
   );
 }
 

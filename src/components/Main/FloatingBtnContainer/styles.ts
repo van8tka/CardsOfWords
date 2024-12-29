@@ -6,7 +6,7 @@ export const styles = ScaledSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     bottom: '50@vs',
-    right: '30@s',
+    right: '40@s',
     flexDirection: 'column',
   },
   addBtn:{

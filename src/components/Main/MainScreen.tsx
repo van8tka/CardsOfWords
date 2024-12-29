@@ -9,7 +9,7 @@ import {mockDictionary, mockThemes} from '../../mock';
 
 function MainScreen() {
 
-  log.debug('MainScreen', 'begin');
+  log.debug('MainScreen', 'render');
 
   const theme = useThemes();
 
