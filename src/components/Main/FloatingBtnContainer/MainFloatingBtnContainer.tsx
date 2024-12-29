@@ -15,8 +15,8 @@ function MainFloatingBtnContainer({onAddPress, onUploadPress}: FloatingBtnContai
     <View style={styles.floatBtnContainer}>
       <IconButton
         IconSvg={AddIcon}
-        width={56}
-        height={56}
+        width={48}
+        height={48}
         onPress={onAddPress}
         containerStyles={styles.addBtn}
       />

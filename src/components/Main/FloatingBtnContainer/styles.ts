@@ -10,6 +10,6 @@ export const styles = ScaledSheet.create({
     flexDirection: 'column',
   },
   addBtn:{
-    paddingBottom:  '10@vs',
+    paddingBottom:  '16@vs',
   },
 });
