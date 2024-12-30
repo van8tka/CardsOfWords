@@ -5,15 +5,21 @@ import MainFloatingBtnContainer from '@components/Main/FloatingBtnContainer/Main
 import AccordionContainer from '@components/Main/AccordionContainer/AccordionContainer';
 import styles from '@components/Main/styles';
 import {useThemes} from '@utils/themes/ThemeContext';
-import {mockDictionary, mockThemes} from '../../mock';
+import {mockThemes} from '../../mock';
+import {useAppSelector} from '@hooks/reduxCommonHooks';
+import Dictionary from '@models/Dictionary';
+import {useNavigation} from '@react-navigation/native';
+import {RouteScreensEnum} from '@navigators/screens';
+
 
 function MainScreen() {
 
   log.debug('MainScreen', 'render');
-
+  const navigation = useNavigation();
   const theme = useThemes();
+  const dictionaries = useAppSelector<Array<Dictionary>>(state => state.dictionary.dictionaries);
 
-  const sections = mockDictionary.map(dictionary => {
+  const sections = dictionaries.map(dictionary => {
     return {
       dictionary: {...dictionary},
       themes: mockThemes.filter(themeWords => themeWords.idDictionary === dictionary.id),
@@ -23,7 +29,10 @@ function MainScreen() {
   return (
     <View style={styles(theme).container}>
       <AccordionContainer sections={sections} />
-      <MainFloatingBtnContainer onAddPress={()=>{}} onUploadPress={()=>{}}/>
+      <MainFloatingBtnContainer
+        onAddPress={() => navigation.navigate(RouteScreensEnum.DictionaryCreateScreen as never)}
+        onUploadPress={()=>{}}
+      />
     </View>);
 }
 

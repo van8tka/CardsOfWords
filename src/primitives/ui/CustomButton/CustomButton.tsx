@@ -1,12 +1,12 @@
-import {Text, TextStyle, TouchableOpacity, View, ViewStyle} from 'react-native';
+import {StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle} from 'react-native';
 import React from 'react';
 
 interface IButtonProps {
   onPress?: () => void;
   onLongPress?: () => void;
   title?: string;
-  containerStyle?: ViewStyle;
-  titleStyle?: TextStyle;
+  containerStyle?: StyleProp<ViewStyle>;
+  titleStyle?: StyleProp<TextStyle>;
 }
 
 function CustomButton({onPress,onLongPress,title, containerStyle, titleStyle} : IButtonProps) {

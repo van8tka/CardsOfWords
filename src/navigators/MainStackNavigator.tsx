@@ -2,13 +2,15 @@ import {createNativeStackNavigator, NativeStackHeaderProps} from '@react-navigat
 import MainScreen from '@components/Main/MainScreen';
 import {RouteScreensEnum} from './screens';
 import React from 'react';
-import {useLocalization} from '@utils/localization/LocalizationContext';
 import CustomHeader from '../primitives/ui/CustomHeader/CustomHeader';
 import LeftBackIcon from '@assets/icons/left_back_icon.svg';
 import CheckIcon from '@assets/icons/check_icon.svg';
+import DictionaryCreateScreen from '@components/DictionaryForm/DictionaryCreateScreen';
+import {useLocalization} from '@utils/localization/LocalizationContext';
 
 function MainStackNavigator () {
   const Stack = createNativeStackNavigator();
+
   const localizedStrings = useLocalization();
 
   function headerFunction({
@@ -34,6 +36,11 @@ function MainStackNavigator () {
         <Stack.Screen
           name={RouteScreensEnum.MainScreen}
           component={MainScreen}
+        />
+      <Stack.Screen
+          name={RouteScreensEnum.DictionaryCreateScreen}
+          component={DictionaryCreateScreen}
+          options={{title: localizedStrings.addDictionary}}
         />
     </Stack.Navigator>
   );

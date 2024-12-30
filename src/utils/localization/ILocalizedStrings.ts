@@ -5,6 +5,9 @@ interface ILocalizedStrings {
   onPress: string;
   aboutScreen: string;
   like: string;
+  dictionaryPlaceholder: string;
+  continue: string;
+  addDictionary: string;
 }
 
 export default ILocalizedStrings;

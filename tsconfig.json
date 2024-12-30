@@ -10,6 +10,21 @@
       "@assets/*": [
         "src/assets/*"
       ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@navigators/*": [
+        "src/navigators/*"
+      ],
+      "@primitives/*": [
+        "src/primitives/*"
+      ],
+      "@redux/*": [
+        "src/redux/*"
+      ],
       "@components/*": [
         "src/components/*"
       ]

@@ -9,6 +9,9 @@ const darkTheme: ITheme = {
   drawerColor: '#4c4f4d',
   primaryColorTransparent: commonTheme.primaryColorTransparent,
   headerColor: commonTheme.headerColor,
+  buttonTitleColor: commonTheme.buttonTitleColor,
+  textPlaceholderColor: '#ffcfcf',
+  inputBackgroundColor: commonTheme.inputBackgroundColor,
 };
 
 export default darkTheme;

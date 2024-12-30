@@ -12,7 +12,7 @@ export const styles = (theme: ITheme) =>{
     },
     title: {
       flex: 1,
-      color: theme.textSecondaryColor,
+      color: theme.headerColor,
       fontSize: '17@s',
     },
   });

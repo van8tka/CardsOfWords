@@ -20,9 +20,11 @@ const DrawerNavigator = () => {
 
   const localizedStrings = useLocalization();
   const theme = useThemes();
+
   return (
     <Drawer.Navigator
-      screenOptions={{
+      screenOptions={
+      {
         drawerStyle: {
           backgroundColor: theme.drawerColor,
         },

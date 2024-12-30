@@ -7,6 +7,9 @@ const en: ILocalizedStrings = {
   onPress: 'On Pressed to Me',
   aboutScreen: 'About app',
   like: 'Like',
+  dictionaryPlaceholder: 'Enter dictionary name',
+  continue: 'Continue',
+  addDictionary: 'Add dictionary',
 };
 
 export default en;
