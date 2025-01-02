@@ -1,4 +1,4 @@
-import {StyleProp, TouchableOpacity, View, ViewProps, ViewStyle} from 'react-native';
+import {StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import React from 'react';
 import {SvgProps} from 'react-native-svg';
 import { vs } from 'react-native-size-matters';
@@ -9,9 +9,10 @@ interface IconButtonProps {
   width?: number;
   height?: number;
   containerStyles?: StyleProp<ViewStyle>
+  iconStyle?: StyleProp<ViewStyle>;
 }
 
-function IconButton({onPress, IconSvg, width, height, containerStyles}: IconButtonProps): JSX.Element {
+function IconButton({onPress, IconSvg, width, height, containerStyles, iconStyle}: IconButtonProps): JSX.Element {
   const MIN_TOUCH_SIZE = 42;
   const paddingMinimalForTouch = () => {
     if (!height || height > MIN_TOUCH_SIZE) {return 0;}
@@ -21,7 +22,7 @@ function IconButton({onPress, IconSvg, width, height, containerStyles}: IconButt
 
   return (
     <TouchableOpacity onPress={onPress} style={[containerStyles,{ padding: vs(paddingMinimalForTouch())}]}>
-      <IconSvg width={width} height={height} />
+      <IconSvg width={width} height={height} style={iconStyle}/>
     </TouchableOpacity>
   );
 }

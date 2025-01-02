@@ -5,7 +5,7 @@ import {useThemes} from '@utils/themes/ThemeContext';
 import styles from './styles';
 import Dictionary from '../../../models/Dictionary';
 import ThemeOfWords from '../../../models/ThemeOfWords';
-import ItemContainer from '@components/Main/AccordionContainer/ItemContent/ItemContainer';
+import ItemsContainer from '@components/Main/AccordionContainer/ItemContent/ItemContainer';
 import ItemHeader from '@components/Main/AccordionContainer/ItemHeader/ItemHeader';
 import {percentFormatter} from '@components/Main/AccordionContainer/formatter';
 
@@ -30,7 +30,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   }
 //todo must using model type
   function renderContent(section: any) {
-    return <ItemContainer
+    return <ItemsContainer
       theme={theme}
       themeWord={section.themes} />;
   }

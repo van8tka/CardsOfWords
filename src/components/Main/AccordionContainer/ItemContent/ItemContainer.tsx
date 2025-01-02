@@ -10,7 +10,7 @@ interface IItemContentProps {
   themeWord: ThemeOfWords[],
 }
 
-function ItemContainer({theme, themeWord}: IItemContentProps) {
+function ItemsContainer({theme, themeWord}: IItemContentProps) {
 
   // @ts-ignore
   const renderItem = (item: ThemeOfWords) => {
@@ -27,8 +27,8 @@ function ItemContainer({theme, themeWord}: IItemContentProps) {
   return (
     <View style={styles(theme).accordBody}>
       {themeWord.map((item) => renderItem(item))}
-          </View>
+    </View>
   );
 }
 
-export default ItemContainer;
+export default ItemsContainer;
