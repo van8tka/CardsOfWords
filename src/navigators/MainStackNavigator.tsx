@@ -2,40 +2,34 @@ import {createNativeStackNavigator, NativeStackHeaderProps} from '@react-navigat
 import MainScreen from '@components/Main/MainScreen';
 import {RouteScreensEnum} from './screens';
 import React from 'react';
-import CustomHeader from '../primitives/ui/CustomHeader/CustomHeader';
-import LeftBackIcon from '@assets/icons/left_back_icon.svg';
-import CheckIcon from '@assets/icons/check_icon.svg';
 import DictionaryCreateScreen from '@components/DictionaryForm/DictionaryCreateScreen';
 import {useLocalization} from '@utils/localization/LocalizationContext';
+import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
+import DrawerCustomHeader from '@primitives/ui/CustomHeader/DrawerCustomHeader';
 
 function MainStackNavigator () {
   const Stack = createNativeStackNavigator();
-
   const localizedStrings = useLocalization();
 
-  function headerFunction({
-                            navigation,
+  function renderHeader({
                             options,
                             route,
                           }: NativeStackHeaderProps) {
 
     if(route.name === RouteScreensEnum.MainScreen) {
-      return null;
+      return <DrawerCustomHeader title={options.title || ''} />;
     }
-    return <CustomHeader
-      title={options.title}
-      onPressLeft={() => navigation.goBack()}
-      leftBtnIcon={LeftBackIcon}
-      onPressRight={() => {}}
-      rightBtnIcon={CheckIcon}
-    />;
+    return <LeftCommonHeader title={options.title || ''} />;
   }
 
   return(
-    <Stack.Navigator initialRouteName={RouteScreensEnum.MainScreen} screenOptions={{header: headerFunction}}>
+    <Stack.Navigator
+      initialRouteName={RouteScreensEnum.MainScreen}
+      screenOptions={{header: renderHeader}}>
         <Stack.Screen
           name={RouteScreensEnum.MainScreen}
           component={MainScreen}
+          options={{title: localizedStrings.appName }}
         />
       <Stack.Screen
           name={RouteScreensEnum.DictionaryCreateScreen}

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import dictionarySlice from './slices/dictionarySlice';
+import appSlice from '@redux/slices/appSlice';
 
 const store = configureStore({
   reducer:{
     dictionary: dictionarySlice,
+    app: appSlice,
   },
 });
 

@@ -14,6 +14,7 @@ export const styles = (theme: ITheme) =>{
       flex: 1,
       color: theme.headerColor,
       fontSize: '17@s',
+      fontWeight: '500',
     },
   });
 };

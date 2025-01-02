@@ -1,6 +1,6 @@
 import {
   createDrawerNavigator,
-  DrawerContentScrollView,
+  DrawerContentScrollView, DrawerHeaderProps,
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
@@ -13,6 +13,8 @@ import MainStackNavigator from './MainStackNavigator';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {useThemes} from '@utils/themes/ThemeContext';
 import {vs} from 'react-native-size-matters';
+import DrawerCustomHeader from '@primitives/ui/CustomHeader/DrawerCustomHeader';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -21,10 +23,16 @@ const DrawerNavigator = () => {
   const localizedStrings = useLocalization();
   const theme = useThemes();
 
+  function renderHeader({options}: DrawerHeaderProps) {
+      return <DrawerCustomHeader title={options.title || ''} />;
+  }
+
+
   return (
     <Drawer.Navigator
       screenOptions={
       {
+        header: renderHeader,
         drawerStyle: {
           backgroundColor: theme.drawerColor,
         },
@@ -58,7 +66,7 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name={RouteNavEnum.MainStackNavigator}
         component={MainStackNavigator}
-        options={{title:localizedStrings.appName}}
+        options={{title:localizedStrings.appName, headerShown: false}}
       />
       <Drawer.Screen
         name={RouteScreensEnum.AboutScreen}

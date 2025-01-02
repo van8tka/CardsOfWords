@@ -20,11 +20,14 @@ const CustomHeader = ({
                         onPressLeft,
                         onPressRight }: ICustomHeaderProps) => {
   const theme = useThemes();
+  const DefaultHeightLeftIcon = 28;
+  const DefaultSizeIcon = 32;
+
   return (
     <View style={styles(theme).header}>
-      {leftBtnIcon && <IconButton IconSvg={leftBtnIcon} onPress={onPressLeft} height={28} width={32}/>}
+      {leftBtnIcon && <IconButton IconSvg={leftBtnIcon} onPress={onPressLeft} height={DefaultHeightLeftIcon} width={DefaultSizeIcon}/>}
       <Text style={styles(theme).title}>{title || ''}</Text>
-      {rightBtnIcon && <IconButton IconSvg={rightBtnIcon} onPress={onPressRight} height={32} width={32}/>}
+      {rightBtnIcon && <IconButton IconSvg={rightBtnIcon} onPress={onPressRight} height={DefaultSizeIcon} width={DefaultSizeIcon}/>}
     </View>
   );
 };
