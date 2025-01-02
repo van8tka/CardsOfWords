@@ -10,6 +10,8 @@ const en: ILocalizedStrings = {
   dictionaryPlaceholder: 'Enter dictionary name',
   continue: 'Continue',
   addDictionary: 'Add dictionary',
+  successAddedDictionary: 'Success added dictionary',
+  errorEmptyAddedDictionary: 'Dictionary name can not be empty',
 };
 
 export default en;

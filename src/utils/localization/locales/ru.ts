@@ -10,6 +10,8 @@ const ru: ILocalizedStrings = {
   dictionaryPlaceholder: 'Введите название словаря',
   continue: 'Продолжить',
   addDictionary: 'Добавить словарь',
+  successAddedDictionary: 'Новый словарь добавлен',
+  errorEmptyAddedDictionary: 'Имя словаря не может быть пустым',
 };
 
 export default ru;

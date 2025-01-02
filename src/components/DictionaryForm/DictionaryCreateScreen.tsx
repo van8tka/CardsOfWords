@@ -3,12 +3,12 @@ import {useState} from 'react';
 import {useThemes} from '@utils/themes/ThemeContext';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import React from 'react';
-import PrimaryButton from '@primitives/ui/PrimaryButton/PrimaryButton';
 import styles from './styles';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {addDictionary} from '@redux/slices/dictionarySlice';
 import {useNavigation} from '@react-navigation/native';
 import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
+import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 
 function DictionaryCreateScreen() {
 
@@ -18,9 +18,19 @@ function DictionaryCreateScreen() {
   const localization = useLocalization();
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
+const showToast = useToast();
+
 
   function onPressContinue(){
-    dispatch(addDictionary(text));
+    const newDictionaryName = text.trim();
+
+    if(!newDictionaryName){
+      showToast(localization.errorEmptyAddedDictionary, ToastTypeEnum.error);
+      return;
+    }
+
+    showToast(localization.successAddedDictionary, ToastTypeEnum.success);
+    dispatch(addDictionary(text.trim()));
     navigation.goBack();
   }
 

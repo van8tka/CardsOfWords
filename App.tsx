@@ -10,6 +10,7 @@ import {styles} from './App.styles';
 import store from '@redux/store';
 import DrawerNavigator from '@navigators/DrawerNavigator';
 import { Provider } from 'react-redux';
+import {ToastProvider} from '@utils/toast/ToastContext';
 
 
 function App(): React.JSX.Element {
@@ -29,21 +30,23 @@ function App(): React.JSX.Element {
   //todo kuzmuk need update barStyle in status bar
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <ThemeProvider>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor={commonTheme.primaryColor}
-          />
-          <LocalizationProvider>
-            <SafeAreaProvider>
-              <SafeAreaView style={styles.container}>
-                <DrawerNavigator/>
-              </SafeAreaView>
-            </SafeAreaProvider>
-          </LocalizationProvider>
-        </ThemeProvider>
-      </NavigationContainer>
+      <ToastProvider>
+        <NavigationContainer>
+          <ThemeProvider>
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor={commonTheme.primaryColor}
+            />
+            <LocalizationProvider>
+              <SafeAreaProvider>
+                <SafeAreaView style={styles.container}>
+                  <DrawerNavigator/>
+                </SafeAreaView>
+              </SafeAreaProvider>
+            </LocalizationProvider>
+          </ThemeProvider>
+        </NavigationContainer>
+      </ToastProvider>
     </Provider>
   );
 }
