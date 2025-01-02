@@ -12,7 +12,7 @@ import {s} from 'react-native-size-matters';
 function RightActionSwipe(
   prog: SharedValue<number>,
   drag: SharedValue<number>,
-  onChange: () => void,
+  onEdit: () => void,
   onDelete: () => void,
 ) {
   const IconDeleteSize = 26;
@@ -34,7 +34,7 @@ function RightActionSwipe(
         height={IconChangeSize}
         containerStyles={styles.changeAction}
         iconStyle={styles.icon}
-        onPress={onChange}
+        onPress={onEdit}
       />
       <IconButton
         IconSvg={DeleteIcon}
