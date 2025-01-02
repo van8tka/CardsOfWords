@@ -34,7 +34,7 @@ function MainStackNavigator () {
       <Stack.Screen
           name={RouteScreensEnum.DictionaryCreateScreen}
           component={DictionaryCreateScreen}
-          options={{title: localizedStrings.addDictionary}}
+          options={{headerShown: false}}
         />
     </Stack.Navigator>
   );
