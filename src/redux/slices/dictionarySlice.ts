@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import Dictionary from '@models/Dictionary';
 
 const initialState = {
   dictionaries:
@@ -38,6 +39,11 @@ const dictionarySlice = createSlice({
       const index = state.dictionaries.findIndex((d) => d.id === action.payload);
       state.dictionaries.splice(index, 1);
     },
+    editDictionary: (state, action: PayloadAction<Dictionary>) => {
+      const index = state.dictionaries.findIndex((d) => d.id === action.payload.id);
+
+      state.dictionaries[index] = action.payload;
+    },
     addDictionaries: (state, action: PayloadAction<Array<string>>) => {
       const lastId = state.dictionaries?.at(-1)?.id || 0;
       const newDictionaries = action.payload.map((name, i) => {
@@ -51,6 +57,11 @@ const dictionarySlice = createSlice({
     },
   }});
 
-export const {addDictionary, removeDictionary} = dictionarySlice.actions;
+export const {
+  addDictionary,
+  removeDictionary,
+  editDictionary,
+  addDictionaries,
+} = dictionarySlice.actions;
 
 export default dictionarySlice.reducer;

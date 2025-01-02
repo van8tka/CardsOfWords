@@ -9,7 +9,7 @@ import ItemsContainer from '@components/Main/AccordionContainer/ItemContent/Item
 import ItemHeader from '@components/Main/AccordionContainer/ItemHeader/ItemHeader';
 import {percentFormatter} from '@components/Main/AccordionContainer/formatter';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
-import {removeDictionary} from '@redux/slices/dictionarySlice';
+import {editDictionary, removeDictionary} from '@redux/slices/dictionarySlice';
 
 type SectionDictionary = {
   dictionary: Dictionary,
@@ -32,6 +32,11 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
 
   function onEditItem(item: Dictionary){
     console.log('+++++ change: ', item);
+
+    item.name = 'New name';
+    item.percentOfLearned = 34;
+
+    dispatch(editDictionary(item));
   }
 
   function renderHeader(section: SectionDictionary) {
