@@ -20,6 +20,18 @@ const styles = (theme: ITheme) => {
       color: theme.textSecondaryColor,
       fontSize: '12@vs',
     },
+
+    addBtnContainer:{
+      paddingLeft: '8@s',
+      paddingVertical: '12@s',
+      flexDirection: 'row',
+      justifyContent:'center',
+    },
+    addTitle: {
+      color: theme.primaryColor,
+      fontSize: '14@vs',
+      fontWeight: '500',
+    },
   });
 };
 

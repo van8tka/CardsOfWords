@@ -20,6 +20,7 @@ const en: ILocalizedStrings = {
   editThemeWords: 'Edit theme',
   themeWordsPlaceholder: 'Enter theme name',
   successEditThemeWords: 'Theme successfully renamed',
+  addThemeTitleBtn: 'Add new theme',
 };
 
 export default en;

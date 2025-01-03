@@ -18,6 +18,7 @@ interface ILocalizedStrings {
   editThemeWords: string;
   themeWordsPlaceholder: string;
   successEditThemeWords: string;
+  addThemeTitleBtn: string;
 }
 
 export default ILocalizedStrings;

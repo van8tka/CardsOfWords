@@ -20,6 +20,7 @@ const ru: ILocalizedStrings = {
   editThemeWords: 'Изменить тему',
   themeWordsPlaceholder: 'Введите название темы',
   successEditThemeWords: 'Тема успешно переименована',
+  addThemeTitleBtn: 'Добавить новую тему',
 };
 
 export default ru;

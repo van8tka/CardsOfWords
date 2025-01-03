@@ -14,6 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {MainStackParamList} from '@navigators/types';
 import {RouteScreensEnum} from '@navigators/screens';
+import {useLocalization} from '@utils/localization/LocalizationContext';
 
 type SectionDictionary = {
   dictionary: Dictionary,
@@ -25,25 +26,30 @@ interface IAccordionContainerProps {
 }
 
 function AccordionContainer({sections}: IAccordionContainerProps) {
+  const localeStr = useLocalization();
   const theme = useThemes();
   const [activeSections, setActiveSections] = useState<number[]>([]);
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
-  function onDeleteItem(item: Dictionary){
+  function onDeleteDictionary(item: Dictionary){
      dispatch(removeDictionary(item.id));
   }
 
-  function onEditItem(item: Dictionary){
+  function onEditDictionary(item: Dictionary){
     navigation.navigate(RouteScreensEnum.DictionaryEditScreen, { dictionary: item});
+  }
+
+  function onAddThemeOfWords(idDictionary: number){
+    navigation.navigate(RouteScreensEnum.ThemeWordsCreateScreen, {idDictionary});
   }
 
   function renderHeader(section: SectionDictionary) {
     return <ItemHeader
       theme={theme}
       title={section.dictionary.name}
-      onDelete={() => onDeleteItem(section.dictionary)}
-      onEdit={()=> onEditItem(section.dictionary)}
+      onDelete={() => onDeleteDictionary(section.dictionary)}
+      onEdit={()=> onEditDictionary(section.dictionary)}
       percent={percentFormatter(section.dictionary.percentOfLearned)}
     />;
   }
@@ -51,6 +57,8 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   function renderContent(section: SectionDictionary) {
     return <ItemsContainer
       theme={theme}
+      addTitleBtn={localeStr.addThemeTitleBtn}
+      onAddTheme={()=>onAddThemeOfWords(section.dictionary.id)}
       themeWord={section.themes}/>;
   }
 

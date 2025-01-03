@@ -7,10 +7,12 @@ import {percentFormatter} from '@components/Main/AccordionContainer/formatter';
 
 interface IItemContentProps {
   theme: ITheme,
+  onAddTheme: () => void,
+  addTitleBtn: string,
   themeWord: ThemeOfWords[],
 }
 
-function ItemsContainer({theme, themeWord}: IItemContentProps) {
+function ItemsContainer({theme, themeWord, onAddTheme, addTitleBtn}: IItemContentProps) {
 
   // @ts-ignore
   const renderItem = (item: ThemeOfWords) => {
@@ -24,8 +26,19 @@ function ItemsContainer({theme, themeWord}: IItemContentProps) {
     );
   };
 
+  const renderAddedTheme = () => {
+    return (
+      <TouchableOpacity onPress={onAddTheme}>
+        <View style={styles(theme).addBtnContainer}>
+          <Text style={styles(theme).addTitle}>{addTitleBtn}</Text>
+        </View>
+      </ TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles(theme).accordBody}>
+      {renderAddedTheme()}
       {themeWord.map((item) => renderItem(item))}
     </View>
   );
