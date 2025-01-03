@@ -9,7 +9,11 @@ import ItemsContainer from '@components/Main/AccordionContainer/ItemContent/Item
 import ItemHeader from '@components/Main/AccordionContainer/ItemHeader/ItemHeader';
 import {percentFormatter} from '@components/Main/AccordionContainer/formatter';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
-import {editDictionary, removeDictionary} from '@redux/slices/dictionarySlice';
+import {removeDictionary} from '@redux/slices/dictionarySlice';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {MainStackParamList} from '@navigators/types';
+import {RouteScreensEnum} from '@navigators/screens';
 
 type SectionDictionary = {
   dictionary: Dictionary,
@@ -24,19 +28,14 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   const theme = useThemes();
   const [activeSections, setActiveSections] = useState<number[]>([]);
   const dispatch = useAppDispatch();
-
+  const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
   function onDeleteItem(item: Dictionary){
      dispatch(removeDictionary(item.id));
   }
 
   function onEditItem(item: Dictionary){
-    console.log('+++++ change: ', item);
-
-    item.name = 'New name';
-    item.percentOfLearned = 34;
-
-    dispatch(editDictionary(item));
+    navigation.navigate(RouteScreensEnum.DictionaryEditScreen, { dictionary: item});
   }
 
   function renderHeader(section: SectionDictionary) {

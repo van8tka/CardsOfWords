@@ -6,9 +6,12 @@ import DictionaryCreateScreen from '@components/DictionaryForm/DictionaryCreateS
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
 import DrawerCustomHeader from '@primitives/ui/CustomHeader/DrawerCustomHeader';
+import DictionaryEditScreen from '@components/DictionaryForm/DictionaryEditScreen';
+
+const Stack = createNativeStackNavigator();
 
 function MainStackNavigator () {
-  const Stack = createNativeStackNavigator();
+
   const localizedStrings = useLocalization();
 
   function renderHeader({
@@ -36,6 +39,11 @@ function MainStackNavigator () {
           component={DictionaryCreateScreen}
           options={{headerShown: false}}
         />
+      <Stack.Screen
+        name={RouteScreensEnum.DictionaryEditScreen}
+        component={DictionaryEditScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

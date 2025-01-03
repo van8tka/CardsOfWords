@@ -3,4 +3,5 @@ export enum RouteScreensEnum {
   SettingsScreen='SettingsScreen',
   AboutScreen = 'AboutScreen',
   DictionaryCreateScreen = 'DictionaryCreateScreen',
+  DictionaryEditScreen = 'DictionaryEditScreen',
 }

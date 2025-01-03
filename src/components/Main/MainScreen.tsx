@@ -10,12 +10,13 @@ import {useAppSelector} from '@hooks/reduxCommonHooks';
 import Dictionary from '@models/Dictionary';
 import {useNavigation} from '@react-navigation/native';
 import {RouteScreensEnum} from '@navigators/screens';
-
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {MainStackParamList} from '@navigators/types';
 
 function MainScreen() {
 
   log.debug('MainScreen', 'render');
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const theme = useThemes();
   const dictionaries = useAppSelector<Array<Dictionary>>(state => state.dictionary.dictionaries);
 
@@ -30,11 +31,10 @@ function MainScreen() {
     <View style={styles(theme).container}>
       <AccordionContainer sections={sections} />
       <MainFloatingBtnContainer
-        onAddPress={() => navigation.navigate(RouteScreensEnum.DictionaryCreateScreen as never)}
+        onAddPress={() => navigation.navigate(RouteScreensEnum.DictionaryCreateScreen)}
         onUploadPress={()=>{}}
       />
     </View>);
 }
-
 
 export default MainScreen;

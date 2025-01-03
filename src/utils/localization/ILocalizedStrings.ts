@@ -8,8 +8,10 @@ interface ILocalizedStrings {
   dictionaryPlaceholder: string;
   continue: string;
   addDictionary: string;
+  editDictionary: string;
   successAddedDictionary: string;
-  errorEmptyAddedDictionary: string;
+  errorEmptyDictionary: string;
+  successEditDictionary: string;
 }
 
 export default ILocalizedStrings;

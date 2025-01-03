@@ -3,14 +3,17 @@ import {useState} from 'react';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import React from 'react';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
-import {addDictionary} from '@redux/slices/dictionarySlice';
+import {editDictionary} from '@redux/slices/dictionarySlice';
 import {useNavigation} from '@react-navigation/native';
 import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
+import Dictionary from '@models/Dictionary';
 import InputDictionary from '@components/DictionaryForm/InputDictionary/InputDictionary';
 
-function DictionaryCreateScreen() {
-  const [text, setText] = useState('');
+// @ts-ignore
+const DictionaryEditScreen = ({route}) => {
+  const dictionary = route.params.dictionary as Dictionary;
+  const [text, setText] = useState(dictionary.name);
 
   const localization = useLocalization();
   const navigation = useNavigation();
@@ -26,17 +29,17 @@ function DictionaryCreateScreen() {
       return;
     }
 
-    showToast(localization.successAddedDictionary, ToastTypeEnum.success);
-    dispatch(addDictionary(name));
+    showToast(localization.successEditDictionary, ToastTypeEnum.success);
+    dispatch(editDictionary({id: dictionary.id, name: name, percentOfLearned: dictionary.percentOfLearned}));
     navigation.goBack();
   }
 
   return (
     <View>
-      <LeftRightCommonHeader title={localization.addDictionary} onPressRight={onPressContinue} />
+      <LeftRightCommonHeader title={localization.editDictionary} onPressRight={onPressContinue} />
       <InputDictionary text={text} setText={setText} placeholder={localization.dictionaryPlaceholder} />
     </View>
   );
-}
+};
 
-export default DictionaryCreateScreen;
+export default DictionaryEditScreen;
