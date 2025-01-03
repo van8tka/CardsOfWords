@@ -20,7 +20,7 @@ const initialState = {
         percentOfLearned: 49,
       },
     ],
-}
+};
 
 const dictionarySlice = createSlice({
   name: 'dictionary',
@@ -39,12 +39,12 @@ const dictionarySlice = createSlice({
       const index = state.dictionaries.findIndex((d) => d.id === action.payload);
       state.dictionaries.splice(index, 1);
     },
-    editDictionary: (state, action: PayloadAction<Dictionary>) => {
+    updateDictionary: (state, action: PayloadAction<Dictionary>) => {
       const index = state.dictionaries.findIndex((d) => d.id === action.payload.id);
 
       state.dictionaries[index] = action.payload;
     },
-    addDictionaries: (state, action: PayloadAction<Array<string>>) => {
+    addMultiDictionaries: (state, action: PayloadAction<Array<string>>) => {
       const lastId = state.dictionaries?.at(-1)?.id || 0;
       const newDictionaries = action.payload.map((name, i) => {
         return {
@@ -60,8 +60,8 @@ const dictionarySlice = createSlice({
 export const {
   addDictionary,
   removeDictionary,
-  editDictionary,
-  addDictionaries,
+  updateDictionary,
+  addMultiDictionaries,
 } = dictionarySlice.actions;
 
 export default dictionarySlice.reducer;

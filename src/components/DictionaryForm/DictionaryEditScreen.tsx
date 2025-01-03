@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import React from 'react';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
-import {editDictionary} from '@redux/slices/dictionarySlice';
+import {updateDictionary} from '@redux/slices/dictionarySlice';
 import {useNavigation} from '@react-navigation/native';
 import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
@@ -30,7 +30,7 @@ const DictionaryEditScreen = ({route}) => {
     }
 
     showToast(localization.successEditDictionary, ToastTypeEnum.success);
-    dispatch(editDictionary({id: dictionary.id, name: name, percentOfLearned: dictionary.percentOfLearned}));
+    dispatch(updateDictionary({id: dictionary.id, name: name, percentOfLearned: dictionary.percentOfLearned}));
     navigation.goBack();
   }
 
