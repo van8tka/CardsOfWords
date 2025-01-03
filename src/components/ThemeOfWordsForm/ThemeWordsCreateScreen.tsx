@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import {addTheme} from '@redux/slices/themeOfWordsSlice';
-import InputThemeWords from '@components/DictionaryForm/InputDictionary/InputDictionary';
+import InputThemeWords from '@components/ThemeOfWordsForm/InputThemeWords/InputThemeWords';
 
 // @ts-ignore
 function ThemeWordsCreateScreen({route}) {

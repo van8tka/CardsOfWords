@@ -8,7 +8,8 @@ import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHe
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import ThemeOfWords from '@models/ThemeOfWords';
 import {updateTheme} from '@redux/slices/themeOfWordsSlice';
-import InputThemeWords from '@components/DictionaryForm/InputDictionary/InputDictionary';
+import InputThemeWords from '@components/ThemeOfWordsForm/InputThemeWords/InputThemeWords';
+
 
 // @ts-ignore
 function ThemeWordsEditScreen({route}) {
