@@ -14,6 +14,12 @@ const ru: ILocalizedStrings = {
   successAddedDictionary: 'Словарь успешно добавлен',
   errorEmptyDictionary: 'Имя словаря не может быть пустым',
   successEditDictionary: 'Словарь успешно переименован',
+  errorEmptyThemeWords: 'Название темы не может быть пустым',
+  successAddedThemeWords: 'Тема успешно добавлена',
+  addThemeWords: 'Добавить тему',
+  editThemeWords: 'Изменить тему',
+  themeWordsPlaceholder: 'Введите название темы',
+  successEditThemeWords: 'Тема успешно переименована',
 };
 
 export default ru;

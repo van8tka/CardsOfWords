@@ -12,6 +12,12 @@ interface ILocalizedStrings {
   successAddedDictionary: string;
   errorEmptyDictionary: string;
   successEditDictionary: string;
+  errorEmptyThemeWords: string;
+  successAddedThemeWords: string;
+  addThemeWords: string;
+  editThemeWords: string;
+  themeWordsPlaceholder: string;
+  successEditThemeWords: string;
 }
 
 export default ILocalizedStrings;

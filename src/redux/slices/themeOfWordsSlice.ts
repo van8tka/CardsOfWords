@@ -171,7 +171,7 @@ const themeOfWordsSlice = createSlice({
   name: 'themeOfWordsSlice',
   initialState: initialState,
   reducers: {
-    addTheme: (state, action: PayloadAction<ThemeOfWords>) => {
+    addTheme: (state, action: PayloadAction<{name: string, idDictionary: number}>) => {
       const lastId = state.themes?.at(-1)?.id || 0;
       const newTheme: ThemeOfWords = {
         id: lastId + 1,

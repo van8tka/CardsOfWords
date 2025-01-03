@@ -14,6 +14,12 @@ const en: ILocalizedStrings = {
   successAddedDictionary: 'Dictionary successfully added',
   errorEmptyDictionary: 'Dictionary name can not be empty',
   successEditDictionary: 'Dictionary successfully renamed',
+  errorEmptyThemeWords: 'Theme name can not be empty',
+  successAddedThemeWords: 'Theme successfully added',
+  addThemeWords: 'Add theme',
+  editThemeWords: 'Edit theme',
+  themeWordsPlaceholder: 'Enter theme name',
+  successEditThemeWords: 'Theme successfully renamed',
 };
 
 export default en;
