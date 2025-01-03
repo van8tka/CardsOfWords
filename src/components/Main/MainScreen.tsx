@@ -12,6 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import {RouteScreensEnum} from '@navigators/screens';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {MainStackParamList} from '@navigators/types';
+import ThemeOfWords from '@models/ThemeOfWords';
 
 function MainScreen() {
 
@@ -19,14 +20,16 @@ function MainScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const theme = useThemes();
   const dictionaries = useAppSelector<Array<Dictionary>>(state => state.dictionary.dictionaries);
-
+  const themesOfWords = useAppSelector<Array<ThemeOfWords>>(state => state.themeOfWords.themes);
   const sections = dictionaries.map(dictionary => {
     return {
       dictionary: {...dictionary},
-      themes: mockThemes.filter(themeWords => themeWords.idDictionary === dictionary.id),
+      themes: themesOfWords.filter(themeWords => themeWords.idDictionary === dictionary.id),
     };
   });
 
+  console.log('+++', themesOfWords);
+  console.log('+++', sections);
   return (
     <View style={styles(theme).container}>
       <AccordionContainer sections={sections} />

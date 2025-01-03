@@ -3,8 +3,8 @@ import commonTheme from '@utils/themes/themes/commonTheme';
 
 const styles = ScaledSheet.create({
   rightActionContainer: {
-    flexDirection: 'row', // Расположить кнопки в строку
-    alignItems: 'center', // Вертикальное выравнивание по центру
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   deleteAction: {
     width: '80@s',

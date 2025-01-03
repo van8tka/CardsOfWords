@@ -9,7 +9,7 @@ const initialState = {
     name: 'Дом',
     idDictionary: 1,
     percentOfLearned: 25,
-    lastUpdate: new Date(),
+    lastUpdate: new Date().toLocaleString(),
     isBeginLearned: true,
     },
     {
@@ -17,152 +17,8 @@ const initialState = {
       name: 'Аэропорт',
       idDictionary: 1,
       percentOfLearned: 0,
-      lastUpdate: new Date(),
+      lastUpdate: new Date().toLocaleString(),
       isBeginLearned: false,
-    },
-    {
-      id: 3,
-      name: 'Тело человека',
-      idDictionary: 1,
-      percentOfLearned: 25,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 4,
-      name: 'Популярные',
-      idDictionary: 2,
-      percentOfLearned: 30,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 5,
-      name: 'Как пройти',
-      idDictionary: 2,
-      percentOfLearned: 87,
-      lastUpdate: new Date(),
-      isBeginLearned: false,
-    },
-    {
-      id: 6,
-      name: 'Путешествие',
-      idDictionary: 2,
-      percentOfLearned: 15,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 7,
-      name: 'Автомобиль',
-      idDictionary: 2,
-      percentOfLearned: 30,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 8,
-      name: 'Космос',
-      idDictionary: 2,
-      percentOfLearned: 87,
-      lastUpdate: new Date(),
-      isBeginLearned: false,
-    },
-    {
-      id: 9,
-      name: 'Корабль',
-      idDictionary: 2,
-      percentOfLearned: 15,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 10,
-      name: 'Животные',
-      idDictionary: 2,
-      percentOfLearned: 30,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 11,
-      name: 'Строение человека',
-      idDictionary: 2,
-      percentOfLearned: 87,
-      lastUpdate: new Date(),
-      isBeginLearned: false,
-    },
-    {
-      id: 12,
-      name: 'Кухня',
-      idDictionary: 2,
-      percentOfLearned: 15,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 13,
-      name: 'Ресторан',
-      idDictionary: 2,
-      percentOfLearned: 30,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 14,
-      name: 'Ванная',
-      idDictionary: 2,
-      percentOfLearned: 87,
-      lastUpdate: new Date(),
-      isBeginLearned: false,
-    },
-    {
-      id: 15,
-      name: 'Квартира',
-      idDictionary: 2,
-      percentOfLearned: 15,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 7,
-      name: 'Популярные',
-      idDictionary: 3,
-      percentOfLearned: 10,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 8,
-      name: 'Автвокзал',
-      idDictionary: 3,
-      percentOfLearned: 0,
-      lastUpdate: new Date(),
-      isBeginLearned: false,
-    },
-    {
-      id: 9,
-      name: 'Аэропорт',
-      idDictionary: 3,
-      percentOfLearned: 0,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 10,
-      name: 'Работа',
-      idDictionary: 3,
-      percentOfLearned: 0,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
-    },
-    {
-      id: 11,
-      name: 'Характер человека',
-      idDictionary: 3,
-      percentOfLearned: 0,
-      lastUpdate: new Date(),
-      isBeginLearned: true,
     },
   ],
 };
@@ -179,16 +35,24 @@ const themeOfWordsSlice = createSlice({
         name: action.payload.name,
         percentOfLearned: 0,
         isBeginLearned: false,
-        lastUpdate: new Date(),
+        lastUpdate: new Date().toLocaleString(),
       };
+
+      console.log('++++ added new theme: ',newTheme);
+
       state.themes.push(newTheme);
     },
 
     updateTheme: (state, action: PayloadAction<ThemeOfWords>) => {
       const index = state.themes.findIndex((d) => d.id === action.payload.id);
-      const updatedTheme = action.payload;
-      updatedTheme.lastUpdate = new Date();
-      state.themes[index] = updatedTheme;
+      state.themes[index] = {
+        id: action.payload.id,
+        name: action.payload.name,
+        percentOfLearned: action.payload.percentOfLearned,
+        lastUpdate: new Date().toLocaleString(),
+        isBeginLearned: action.payload.isBeginLearned,
+        idDictionary: action.payload.idDictionary,
+      };
     },
 
     removeTheme: (state, action: PayloadAction<number>) => {
@@ -217,11 +81,11 @@ const themeOfWordsSlice = createSlice({
           name: item.name,
           percentOfLearned: 0,
           isBeginLearned: false,
-          lastUpdate: new Date(),
+          lastUpdate: new Date().toLocaleString(),
         };
       });
       state.themes = {...state.themes, ...newThemes};
-    }
+    },
   },
 });
 

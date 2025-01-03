@@ -6,7 +6,7 @@ type ThemeOfWords = {
   name: string;
   idDictionary: number; //it was idLanguage
   percentOfLearned: number;
-  lastUpdate: Date;
+  lastUpdate: string;
   isBeginLearned: boolean;
 }
 
