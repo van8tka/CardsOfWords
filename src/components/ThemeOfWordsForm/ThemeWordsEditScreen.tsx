@@ -27,9 +27,10 @@ function ThemeWordsEditScreen({route}) {
       showToast(localization.errorEmptyThemeWords, ToastTypeEnum.error);
       return;
     }
-    themeOfWord.name = name;
+
+    const updatedTheme = {...themeOfWord, name: name };
+    dispatch(updateTheme(updatedTheme));
     showToast(localization.successEditThemeWords, ToastTypeEnum.success);
-    dispatch(updateTheme(themeOfWord));
     navigation.goBack();
   }
 
