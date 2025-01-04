@@ -60,6 +60,9 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   function onAddWord(idTheme: number){
     navigation.navigate(RouteScreensEnum.WordCreateScreen, {idTheme});
   }
+  function onLongPressThemeOfWords(themeOfWord: ThemeOfWords){
+    navigation.navigate(RouteScreensEnum.ListWordsScreen, {idTheme: themeOfWord.id, title: themeOfWord.name});
+  }
 
   function renderHeader(section: SectionDictionary) {
     return <ItemHeader
@@ -77,6 +80,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
       onEdit={onEditThemeOfWords}
       onDelete={onDeleteThemeOfWords}
       onSelect={onSelectThemeOfWords}
+      onLongPress={onLongPressThemeOfWords}
       addTitleBtn={localeStr.addThemeTitleBtn}
       onAddTheme={() => onAddThemeOfWords(section.dictionary.id)}
       onAddWord={onAddWord}

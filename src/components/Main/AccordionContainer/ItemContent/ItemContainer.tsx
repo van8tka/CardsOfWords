@@ -14,12 +14,23 @@ interface IItemContentProps {
   onDelete: (id: number) => void,
   onEdit: (themeWords: ThemeOfWords) => void,
   onSelect: (themeWords: ThemeOfWords) => void,
+  onLongPress: (themeWords: ThemeOfWords) => void,
   onAddWord: (id: number) => void,
   addTitleBtn: string,
   themeWords: ThemeOfWords[],
 }
 
-function ItemsContainer({theme, onAddWord, themeWords, onAddTheme, addTitleBtn, onEdit, onDelete, onSelect}: IItemContentProps) {
+function ItemsContainer({
+                          theme,
+                          onAddWord,
+                          themeWords,
+                          onAddTheme,
+                          addTitleBtn,
+                          onEdit,
+                          onDelete,
+                          onSelect,
+                          onLongPress,
+}: IItemContentProps) {
   // @ts-ignore
   const renderItem = (item: ThemeOfWords) => {
     return (
@@ -27,8 +38,10 @@ function ItemsContainer({theme, onAddWord, themeWords, onAddTheme, addTitleBtn, 
         onDelete={() => onDelete(item.id)}
         onEdit={() => onEdit(item)}>
         <View style={styles(theme).container}>
-          <TouchableOpacity onPress={() => onSelect(item)}
-                            style={styles(theme).touchItem}>
+          <TouchableOpacity
+            onLongPress={()=>onLongPress(item)}
+            onPress={() => onSelect(item)}
+            style={styles(theme).touchItem}>
             <View style={styles(theme).itemContainer}>
               <Text style={styles(theme).title}>{item.name}</Text>
               <Text style={styles(theme).percent}>

@@ -10,7 +10,7 @@ const darkTheme: ITheme = {
   primaryColorTransparent: commonTheme.primaryColorTransparent,
   headerColor: commonTheme.headerColor,
   buttonTitleColor: commonTheme.buttonTitleColor,
-  textPlaceholderColor: '#ffcfcf',
+  textPlaceholderColor: '#4c4f4d',
   inputBackgroundColor: commonTheme.inputBackgroundColor,
 };
 

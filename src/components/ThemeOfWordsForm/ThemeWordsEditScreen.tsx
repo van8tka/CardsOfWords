@@ -9,6 +9,8 @@ import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import ThemeOfWords from '@models/ThemeOfWords';
 import {updateTheme} from '@redux/slices/themeOfWordsSlice';
 import InputThemeWords from '@components/ThemeOfWordsForm/InputThemeWords/InputThemeWords';
+import styles from './styles';
+import {useThemes} from '@utils/themes/ThemeContext';
 
 
 // @ts-ignore
@@ -19,6 +21,7 @@ function ThemeWordsEditScreen({route}) {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
   const showToast = useToast();
+  const theme = useThemes();
 
   function onPressContinue(){
     const name = text.trim();
@@ -35,7 +38,7 @@ function ThemeWordsEditScreen({route}) {
   }
 
   return (
-    <View>
+    <View style={styles(theme).container}>
       <LeftRightCommonHeader title={localization.editThemeWords} onPressRight={onPressContinue} />
       <InputThemeWords text={text} setText={setText} placeholder={localization.themeWordsPlaceholder} />
     </View>

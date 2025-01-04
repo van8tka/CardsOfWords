@@ -39,7 +39,7 @@ function App(): React.JSX.Element {
             />
             <LocalizationProvider>
               <SafeAreaProvider>
-                <SafeAreaView style={styles.container}>
+                <SafeAreaView style={styles.safeArea}>
                   <DrawerNavigator/>
                 </SafeAreaView>
               </SafeAreaProvider>

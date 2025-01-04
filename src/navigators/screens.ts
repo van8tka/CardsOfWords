@@ -8,4 +8,5 @@ export enum RouteScreensEnum {
   ThemeWordsEditScreen = 'ThemeWordsEditScreen',
   WordCreateScreen = 'WordCreateScreen',
   WordEditScreen = 'WordEditScreen',
+  ListWordsScreen = 'ListWordsScreen',
 }

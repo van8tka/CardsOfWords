@@ -9,12 +9,14 @@ import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHe
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import Dictionary from '@models/Dictionary';
 import InputDictionary from '@components/DictionaryForm/InputDictionary/InputDictionary';
+import {useThemes} from '@utils/themes/ThemeContext';
+import styles from './styles';
 
 // @ts-ignore
 const DictionaryEditScreen = ({route}) => {
   const dictionary = route.params.dictionary as Dictionary;
   const [text, setText] = useState(dictionary.name);
-
+  const theme = useThemes();
   const localization = useLocalization();
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
@@ -35,7 +37,7 @@ const DictionaryEditScreen = ({route}) => {
   }
 
   return (
-    <View>
+    <View style={styles(theme).container}>
       <LeftRightCommonHeader title={localization.editDictionary} onPressRight={onPressContinue} />
       <InputDictionary text={text} setText={setText} placeholder={localization.dictionaryPlaceholder} />
     </View>

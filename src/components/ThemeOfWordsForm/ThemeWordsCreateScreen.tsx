@@ -8,6 +8,8 @@ import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHe
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import {addTheme} from '@redux/slices/themeOfWordsSlice';
 import InputThemeWords from '@components/ThemeOfWordsForm/InputThemeWords/InputThemeWords';
+import {useThemes} from '@utils/themes/ThemeContext';
+import styles from './styles';
 
 // @ts-ignore
 function ThemeWordsCreateScreen({route}) {
@@ -17,6 +19,7 @@ function ThemeWordsCreateScreen({route}) {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
   const showToast = useToast();
+  const theme = useThemes();
 
   function onPressContinue(){
     const name = text.trim();
@@ -32,7 +35,7 @@ function ThemeWordsCreateScreen({route}) {
   }
 
   return (
-    <View>
+    <View style={styles(theme).container}>
       <LeftRightCommonHeader title={localization.addThemeWords} onPressRight={onPressContinue} />
       <InputThemeWords text={text} setText={setText} placeholder={localization.themeWordsPlaceholder} />
     </View>

@@ -10,4 +10,5 @@ export type MainStackParamList = {
   ThemeWordsEditScreen: {themeOfWords: ThemeOfWords};
   WordCreateScreen: { idTheme: number };
   WordEditScreen: { word: Word };
+  ListWordsScreen: { idTheme: number, title: string };
 };

@@ -8,10 +8,13 @@ import {useNavigation} from '@react-navigation/native';
 import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import InputDictionary from '@components/DictionaryForm/InputDictionary/InputDictionary';
+import styles from './styles';
+import {useThemes} from '@utils/themes/ThemeContext';
 
 function DictionaryCreateScreen() {
   const [text, setText] = useState('');
 
+  const theme = useThemes();
   const localization = useLocalization();
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
@@ -32,7 +35,7 @@ function DictionaryCreateScreen() {
   }
 
   return (
-    <View>
+    <View style={styles(theme).container}>
       <LeftRightCommonHeader title={localization.addDictionary} onPressRight={onPressContinue} />
       <InputDictionary text={text} setText={setText} placeholder={localization.dictionaryPlaceholder} />
     </View>
