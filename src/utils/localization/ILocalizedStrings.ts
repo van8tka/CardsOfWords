@@ -21,6 +21,7 @@ interface ILocalizedStrings {
   addThemeTitleBtn: string;
   addWord: string;
   editWord: string;
+  emptyWordsList: string;
 }
 
 export default ILocalizedStrings;

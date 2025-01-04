@@ -23,6 +23,7 @@ const ru: ILocalizedStrings = {
   addThemeTitleBtn: 'Добавить новую тему',
   addWord: 'Добавить слово',
   editWord: 'Изменить слово',
+  emptyWordsList: 'В выбранном словаре\nнет слов',
 };
 
 export default ru;

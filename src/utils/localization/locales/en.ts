@@ -23,6 +23,7 @@ const en: ILocalizedStrings = {
   addThemeTitleBtn: 'Add new theme',
   addWord: 'Add new word',
   editWord: 'Edit word',
+  emptyWordsList: 'In the selected dictionary\nno words',
 };
 
 export default en;
