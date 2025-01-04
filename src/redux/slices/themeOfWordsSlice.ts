@@ -38,8 +38,6 @@ const themeOfWordsSlice = createSlice({
         lastUpdate: new Date().toLocaleString(),
       };
 
-      console.log('++++ added new theme: ',newTheme);
-
       state.themes.push(newTheme);
     },
 

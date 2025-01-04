@@ -29,7 +29,7 @@ interface IAccordionContainerProps {
 function AccordionContainer({sections}: IAccordionContainerProps) {
   const localeStr = useLocalization();
   const theme = useThemes();
-  const [activeSections, setActiveSections] = useState<number[]>([]);
+  const [activeSections, setActiveSections] = useState<number[]>([0]);
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
@@ -74,9 +74,9 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
       onDelete={onDeleteThemeOfWords}
       onSelect={onSelectThemeOfWords}
       addTitleBtn={localeStr.addThemeTitleBtn}
-      onAddTheme={()=>onAddThemeOfWords(section.dictionary.id)}
-      themeWord={section.themes}/>;
-  }
+      onAddTheme={() => onAddThemeOfWords(section.dictionary.id)}
+      themeWords={section.themes}/>;
+  };
 
   return (
     <>
@@ -84,7 +84,8 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
         contentInsetAdjustmentBehavior="automatic"
         style={styles(theme).container}>
         <Accordion
-          align="bottom"
+          keyExtractor={(item, index) => `${index}-${index}`}
+          align="top"
           sections={sections}
           activeSections={activeSections}
           renderHeader={renderHeader}

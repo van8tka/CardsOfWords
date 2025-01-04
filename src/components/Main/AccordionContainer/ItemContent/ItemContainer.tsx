@@ -13,16 +13,14 @@ interface IItemContentProps {
   onEdit: (themeWords: ThemeOfWords) => void,
   onSelect: (themeWords: ThemeOfWords) => void,
   addTitleBtn: string,
-  themeWord: ThemeOfWords[],
+  themeWords: ThemeOfWords[],
 }
 
-function ItemsContainer({theme, themeWord, onAddTheme, addTitleBtn, onEdit, onDelete, onSelect}: IItemContentProps) {
-    console.log('++++++ render Container', themeWord);
+function ItemsContainer({theme, themeWords, onAddTheme, addTitleBtn, onEdit, onDelete, onSelect}: IItemContentProps) {
   // @ts-ignore
   const renderItem = (item: ThemeOfWords) => {
     return (
-      <TouchableOpacity key={`${item.id}, ${item.idDictionary}`}
-                        onPress={() => onSelect(item)}>
+      <TouchableOpacity onPress={() => onSelect(item)}>
         <SwipeItem
           onDelete={() => onDelete(item.id)}
           onEdit={() => onEdit(item)}>
@@ -41,17 +39,18 @@ function ItemsContainer({theme, themeWord, onAddTheme, addTitleBtn, onEdit, onDe
         <View style={styles(theme).addBtnContainer}>
           <Text style={styles(theme).addTitle}>{addTitleBtn}</Text>
         </View>
-      </ TouchableOpacity>
+      </TouchableOpacity>
     );
   };
 
   return (
     <View style={styles(theme).accordBody}>
+      {renderAddedTheme()}
       <FlatList
+        keyExtractor={(item, index) => `${item.id}-${item.idDictionary}-${index}`}
         scrollEnabled={false}
         showsVerticalScrollIndicator={false}
-        ListHeaderComponent={renderAddedTheme}
-        data={themeWord}
+        data={themeWords}
         renderItem={(item) => renderItem(item.item)}
       />
     </View>
