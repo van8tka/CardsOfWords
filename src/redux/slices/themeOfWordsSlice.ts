@@ -43,14 +43,7 @@ const themeOfWordsSlice = createSlice({
 
     updateTheme: (state, action: PayloadAction<ThemeOfWords>) => {
       const index = state.themes.findIndex((d) => d.id === action.payload.id);
-      state.themes[index] = {
-        id: action.payload.id,
-        name: action.payload.name,
-        percentOfLearned: action.payload.percentOfLearned,
-        lastUpdate: new Date().toLocaleString(),
-        isBeginLearned: action.payload.isBeginLearned,
-        idDictionary: action.payload.idDictionary,
-      };
+      state.themes[index] = {...action.payload,  lastUpdate: new Date().toLocaleString(),};
     },
 
     removeTheme: (state, action: PayloadAction<number>) => {
@@ -59,22 +52,14 @@ const themeOfWordsSlice = createSlice({
     },
 
     removeThemesByDictionary: (state, action: PayloadAction<number>) => {
-      const themes = state.themes;
-
-      const removedThemes = state.themes.filter((d) => d.idDictionary === action.payload);
-      for (let i = 0; i < removedThemes.length; i++) {
-        const index = themes.findIndex((d) => d.id === themes[i].id);
-        themes.splice(index, 1);
-      }
-
-      state.themes = {...themes};
+      state.themes = state.themes.filter((d) => d.idDictionary !== action.payload);
     },
 
     addMultiThemes: (state, action: PayloadAction<ThemeOfWords[]>) => {
       const lastId = state.themes?.at(-1)?.id || 0;
-      const newThemes = action.payload.map((item) => {
+      const newThemes = action.payload.map((item, index) => {
         return {
-          id: lastId + 1,
+          id: lastId + 1 + index,
           idDictionary: item.idDictionary,
           name: item.name,
           percentOfLearned: 0,

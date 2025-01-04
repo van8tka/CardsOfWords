@@ -48,7 +48,7 @@ const dictionarySlice = createSlice({
       const lastId = state.dictionaries?.at(-1)?.id || 0;
       const newDictionaries = action.payload.map((name, i) => {
         return {
-          id: lastId + i,
+          id: lastId + i + 1,
           name: name,
           percentOfLearned: 0,
         };
