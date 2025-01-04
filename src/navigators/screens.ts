@@ -6,4 +6,6 @@ export enum RouteScreensEnum {
   DictionaryEditScreen = 'DictionaryEditScreen',
   ThemeWordsCreateScreen = 'ThemeWordsCreateScreen',
   ThemeWordsEditScreen = 'ThemeWordsEditScreen',
+  WordCreateScreen = 'WordCreateScreen',
+  WordEditScreen = 'WordEditScreen',
 }

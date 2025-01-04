@@ -3,14 +3,16 @@ import {ScaledSheet} from 'react-native-size-matters';
 
 const styles = (theme: ITheme) => {
   return ScaledSheet.create({
+    container: {flexDirection: 'row'},
+    touchItem: {flex: 1},
     accordBody: {
-      paddingHorizontal: '12@s',
+      paddingLeft: '12@s',
     },
-    itemContainer:{
+    itemContainer: {
       paddingLeft: '8@s',
-      paddingVertical: '12@s',
+      paddingVertical: '18@s',
       flexDirection: 'row',
-      justifyContent:'space-between',
+      justifyContent: 'space-between',
     },
     title: {
       color: theme.textSecondaryColor,
@@ -21,11 +23,11 @@ const styles = (theme: ITheme) => {
       fontSize: '12@vs',
     },
 
-    addBtnContainer:{
+    addBtnContainer: {
       paddingLeft: '8@s',
       paddingVertical: '12@s',
       flexDirection: 'row',
-      justifyContent:'center',
+      justifyContent: 'center',
     },
     addTitle: {
       color: theme.primaryColor,

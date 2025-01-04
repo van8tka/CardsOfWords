@@ -5,7 +5,7 @@ const styles = (theme: ITheme) =>{
   return ScaledSheet.create({
     accordHeader: {
       padding: '12@s',
-      backgroundColor: '#40d47f59',
+      backgroundColor: theme.primaryColorTransparent,
       flex: 1,
       flexDirection: 'row',
       justifyContent:'space-between',

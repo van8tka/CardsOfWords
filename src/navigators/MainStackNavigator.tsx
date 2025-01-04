@@ -9,6 +9,8 @@ import DrawerCustomHeader from '@primitives/ui/CustomHeader/DrawerCustomHeader';
 import DictionaryEditScreen from '@components/DictionaryForm/DictionaryEditScreen';
 import ThemeWordsCreateScreen from '@components/ThemeOfWordsForm/ThemeWordsCreateScreen';
 import ThemeWordsEditScreen from '@components/ThemeOfWordsForm/ThemeWordsEditScreen';
+import WordEditScreen from '@components/WordForm/WordEditScreen';
+import WordCreateScreen from '@components/WordForm/WordCreateScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +56,16 @@ function MainStackNavigator () {
       <Stack.Screen
         name={RouteScreensEnum.ThemeWordsEditScreen}
         component={ThemeWordsEditScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={RouteScreensEnum.WordEditScreen}
+        component={WordEditScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={RouteScreensEnum.WordCreateScreen}
+        component={WordCreateScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

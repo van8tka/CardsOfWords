@@ -40,6 +40,6 @@ function ThemeWordsEditScreen({route}) {
       <InputThemeWords text={text} setText={setText} placeholder={localization.themeWordsPlaceholder} />
     </View>
   );
-};
+}
 
 export default ThemeWordsEditScreen;
