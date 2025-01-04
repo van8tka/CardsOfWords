@@ -11,6 +11,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {MainStackParamList} from '@navigators/types';
 import {RouteScreensEnum} from '@navigators/screens';
 import WordsContainer from '@components/ListWords/WordsContainer/WordsContainer';
+import WordsFloatingBtnContainer from '@components/ListWords/FloatingBtnContainer/WordsFloatingBtnContainer';
 
 // @ts-ignore
 function ListWordsScreen({route}) {
@@ -20,18 +21,36 @@ function ListWordsScreen({route}) {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
-  function onDeleteWord(idWord: number){
+  function onDeleteWord(idWord: number) {
     dispatch(removeWord(idWord));
   }
 
-  function onEditWord(word: Word){
+  function onEditWord(word: Word) {
     navigation.navigate(RouteScreensEnum.WordEditScreen, {word: word});
   }
 
+  function onAddWord() {
+    navigation.navigate(RouteScreensEnum.WordCreateScreen, {idTheme: idTheme});
+  }
+
+  function onStudying(){
+    console.log('+++ press studying btn');
+  }
+  function onImport(){
+    console.log('+++ press import');
+  }
+
+
   return (
     <View style={styles(theme).container}>
-      <LeftCommonHeader title={title} />
-       <WordsContainer words={words.filter(item => item.idTheme === idTheme)} onDelete={onDeleteWord} onEdit={onEditWord}/>
+      <LeftCommonHeader title={title}/>
+      <WordsContainer words={words.filter(item => item.idTheme === idTheme)} onDelete={onDeleteWord}
+                      onEdit={onEditWord}/>
+      <WordsFloatingBtnContainer
+        onAddPress={onAddWord}
+        onStudyingPress={onStudying}
+        onImportPress={onImport}
+      />
     </View>
   );
 }
