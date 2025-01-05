@@ -1,6 +1,9 @@
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 
 const ru: ILocalizedStrings = {
+  foreignWord: 'Иностранное слово',
+  transcriptionWord: 'Транскрипция',
+  translateWord: 'Перевод',
   appName: 'Карточки слов',
   settingsScreen: 'Настройки',
   pushMe: 'Нажми на меня',
@@ -24,6 +27,9 @@ const ru: ILocalizedStrings = {
   addWord: 'Добавить слово',
   editWord: 'Изменить слово',
   emptyWordsList: 'В выбранном словаре\nнет слов',
+  validationWordMax: 'Максимальная длина слова 200 символов',
+  requiredTranslate: 'Введите перевод слова',
+  requiredForeign: 'Введите иностранное слово',
 };
 
 export default ru;

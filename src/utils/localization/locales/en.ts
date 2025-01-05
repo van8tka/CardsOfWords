@@ -1,6 +1,9 @@
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 
 const en: ILocalizedStrings = {
+  foreignWord: 'Foreign word',
+  transcriptionWord: 'Transcription',
+  translateWord: 'Translate',
   appName: 'Cards of Words',
   settingsScreen: 'Settings',
   pushMe: 'Push Me',
@@ -24,6 +27,9 @@ const en: ILocalizedStrings = {
   addWord: 'Add new word',
   editWord: 'Edit word',
   emptyWordsList: 'In the selected dictionary\nno words',
+  validationWordMax: 'Max length is 200 characters',
+  requiredTranslate: 'Foreign word is required',
+  requiredForeign: 'Translate word is required'
 };
 
 export default en;

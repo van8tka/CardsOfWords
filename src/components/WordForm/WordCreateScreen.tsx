@@ -1,5 +1,4 @@
 import {View} from 'react-native';
-import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
 import React from 'react';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {useThemes} from '@utils/themes/ThemeContext';
@@ -8,6 +7,7 @@ import InputWordsForm from '@components/WordForm/InputWordsForm/InputWordsForm';
 import Word from '@models/Words';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {addWord} from '@redux/slices/wordSlice';
+import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
 
 // @ts-ignore
 function WordCreateScreen({route}) {
@@ -22,7 +22,7 @@ function WordCreateScreen({route}) {
 
   return (
     <View style={styles(theme).container}>
-      <LeftRightCommonHeader title={localization.addWord} onPressRight={()=>{}} />
+      <LeftCommonHeader title={localization.addWord} />
       <InputWordsForm idTheme={idTheme} onSubmitForm={onAddWord}/>
     </View>
   );

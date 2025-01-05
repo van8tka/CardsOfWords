@@ -1,16 +1,29 @@
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {View} from 'react-native';
-import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
 import React from 'react';
 import {useThemes} from '@utils/themes/ThemeContext';
 import styles from '@components/WordForm/styles';
+import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
+import InputWordsForm from '@components/WordForm/InputWordsForm/InputWordsForm';
+import Word from '@models/Words';
+import {useAppDispatch} from '@hooks/reduxCommonHooks';
+import {updateWord} from '@redux/slices/wordSlice';
 
-function WordEditScreen() {
+// @ts-ignore
+function WordEditScreen({route}) {
+  const word = route.params.word;
   const localization = useLocalization();
   const theme = useThemes();
+  const dispatch = useAppDispatch();
+
+  function onEditWord(editedWord: Word){
+    dispatch(updateWord(editedWord));
+  }
+
   return (
     <View style={styles(theme).container}>
-      <LeftRightCommonHeader title={localization.editWord} onPressRight={()=>{}} />
+      <LeftCommonHeader title={localization.editWord} />
+      <InputWordsForm word={word} onSubmitForm={onEditWord}/>
     </View>
   );
 }

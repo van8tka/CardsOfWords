@@ -5,7 +5,7 @@
   foreign: string;
    //was RusWord
   translation: string;
-  transcription: string;
+  transcription?: string;
   isLearned: boolean;
 }
 

@@ -22,6 +22,12 @@ interface ILocalizedStrings {
   addWord: string;
   editWord: string;
   emptyWordsList: string;
+  validationWordMax: string;
+  requiredTranslate: string;
+  requiredForeign: string;
+  foreignWord: string;
+  translateWord: string;
+  transcriptionWord: string;
 }
 
 export default ILocalizedStrings;
