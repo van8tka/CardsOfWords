@@ -7,7 +7,6 @@ export interface ITheme {
   drawerColor: string;
   primaryColorTransparent: string;
   headerColor: string;
-  buttonTitleColor: string;
   textPlaceholderColor: string;
   inputBackgroundColor: string;
   iconStrokeColor: string;

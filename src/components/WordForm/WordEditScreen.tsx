@@ -8,6 +8,8 @@ import InputWordsForm from '@components/WordForm/InputWordsForm/InputWordsForm';
 import Word from '@models/Words';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {updateWord} from '@redux/slices/wordSlice';
+import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
+import {useNavigation} from '@react-navigation/native';
 
 // @ts-ignore
 function WordEditScreen({route}) {
@@ -15,9 +17,13 @@ function WordEditScreen({route}) {
   const localization = useLocalization();
   const theme = useThemes();
   const dispatch = useAppDispatch();
+  const navigation = useNavigation();
+  const showToast = useToast();
 
   function onEditWord(editedWord: Word){
     dispatch(updateWord(editedWord));
+    showToast(localization.editWordToast, ToastTypeEnum.success);
+    navigation.goBack();
   }
 
   return (

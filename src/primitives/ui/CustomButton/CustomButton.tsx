@@ -11,7 +11,7 @@ interface IButtonProps {
 
 function CustomButton({onPress,onLongPress,title, containerStyle, titleStyle} : IButtonProps) {
   return <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
-    <View style={[containerStyle, { padding: 20}]}>
+    <View style={[containerStyle, {justifyContent: 'center'}]}>
       <Text style={titleStyle}>{title}</Text>
     </View>
   </TouchableOpacity>;

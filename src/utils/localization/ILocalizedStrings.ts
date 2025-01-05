@@ -28,6 +28,8 @@ interface ILocalizedStrings {
   foreignWord: string;
   translateWord: string;
   transcriptionWord: string;
+  editWordToast: string;
+  addWordToast: string;
 }
 
 export default ILocalizedStrings;

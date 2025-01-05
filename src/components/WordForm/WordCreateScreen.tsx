@@ -8,6 +8,8 @@ import Word from '@models/Words';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {addWord} from '@redux/slices/wordSlice';
 import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
+import {useNavigation} from '@react-navigation/native';
+import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 
 // @ts-ignore
 function WordCreateScreen({route}) {
@@ -15,9 +17,14 @@ function WordCreateScreen({route}) {
   const theme = useThemes();
   const idTheme = route?.params?.idTheme;
   const dispatch = useAppDispatch();
+  const navigation = useNavigation();
+  const showToast = useToast();
+
 
   function onAddWord(word: Word){
     dispatch(addWord(word));
+    showToast(localization.addWordToast, ToastTypeEnum.success);
+    navigation.goBack();
   }
 
   return (

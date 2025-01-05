@@ -1,13 +1,11 @@
 import {ITheme} from '@utils/themes/ITheme';
-import {ScaledSheet, vs} from 'react-native-size-matters';
+import {ScaledSheet} from 'react-native-size-matters';
+import commonTheme from '@utils/themes/themes/commonTheme';
 
 const styles = (theme: ITheme) => ScaledSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    backgroundColor: theme.secondaryColor,
-    paddingVertical: vs(4),
+    padding: '10@vs',
   },
   input: {
     height: '54@vs',
@@ -20,6 +18,10 @@ const styles = (theme: ITheme) => ScaledSheet.create({
     fontSize: '16@vs',
     paddingHorizontal: '12@vs',
     marginBottom: '12@vs',
+  },
+  error: {
+    color: commonTheme.errorColor,
+    marginBottom: '10@vs',
   },
 });
 

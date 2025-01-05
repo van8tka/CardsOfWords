@@ -4,14 +4,15 @@ import {ScaledSheet} from 'react-native-size-matters';
 const styles = (theme:ITheme) => ScaledSheet.create({
   button: {
     width: '100%',
-    height: '54@vs',
+    height: '48@vs',
     alignItems: 'center',
     borderRadius: '12@vs',
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.primaryColorTransparent,
   },
   title: {
     fontSize: '15@vs',
-    color: theme.buttonTitleColor,
+    fontWeight: '500',
+    color: theme.textSecondaryColor,
   },
 });
 

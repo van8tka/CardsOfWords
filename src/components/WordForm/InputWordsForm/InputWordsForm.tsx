@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Text } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,17 +7,20 @@ import Word from '@models/Words';
 import {useThemes} from '@utils/themes/ThemeContext';
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 import {useLocalization} from '@utils/localization/LocalizationContext';
+import styles from '@components/WordForm/InputWordsForm/styles';
+import PrimaryButton from '@primitives/ui/PrimaryButton/PrimaryButton';
 
+const maxLenghtWords = 200;
 // Определяем схему валидации с Yup
 const schema = (locale: ILocalizedStrings) => Yup.object().shape({
   foreignWord: Yup.string()
     .required(locale.requiredForeign)
-    .max(200, locale.validationWordMax),
+    .max(maxLenghtWords, locale.validationWordMax),
   translateWord: Yup.string()
     .required(locale.requiredTranslate)
-    .max(200, locale.validationWordMax),
+    .max(maxLenghtWords, locale.validationWordMax),
   transcriptionWord: Yup.string()
-    .max(200, locale.validationWordMax),
+    .max(maxLenghtWords, locale.validationWordMax),
 });
 
 // Определяем типы для формы
@@ -64,74 +67,58 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles(theme).container}>
       <Controller
         control={control}
         name={'foreignWord'}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            style={styles(theme).input}
             placeholder={locale.foreignWord}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            maxLength={maxLenghtWords}
           />
         )}
       />
-      {errors.foreignWord && <Text style={styles.error}>{errors.foreignWord.message}</Text>}
+      {errors.foreignWord && <Text style={styles(theme).error}>{errors.foreignWord.message}</Text>}
 
       <Controller
         control={control}
         name={'translateWord'}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            style={styles(theme).input}
             placeholder={locale.translateWord}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            maxLength={maxLenghtWords}
           />
         )}
       />
-      {errors.translateWord && <Text style={styles.error}>{errors.translateWord.message}</Text>}
+      {errors.translateWord && <Text style={styles(theme).error}>{errors.translateWord.message}</Text>}
 
       <Controller
         control={control}
         name={'transcriptionWord'}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            style={styles(theme).input}
             placeholder={locale.transcriptionWord}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            maxLength={maxLenghtWords}
           />
         )}
       />
-      {errors.transcriptionWord && <Text style={styles.error}>{errors.transcriptionWord.message}</Text>}
+      {errors.transcriptionWord && <Text style={styles(theme).error}>{errors.transcriptionWord.message}</Text>}
 
-      <Button title={locale.continue} onPress={handleSubmit(onSubmit)} />
+      <PrimaryButton title={locale.continue} onPress={handleSubmit(onSubmit)} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: 'center',
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 8,
-  },
-  error: {
-    color: 'red',
-    marginBottom: 10,
-  },
-});
 
 export default InputWordsForm;

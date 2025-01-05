@@ -1,6 +1,8 @@
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 
 const en: ILocalizedStrings = {
+  addWordToast: 'Word successfully added',
+  editWordToast: 'Word successfully updated',
   foreignWord: 'Foreign word',
   transcriptionWord: 'Transcription',
   translateWord: 'Translate',

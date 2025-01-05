@@ -10,7 +10,6 @@ const lightTheme: ITheme = {
   drawerColor: '#f0fcf5',
   primaryColorTransparent: commonTheme.primaryColorTransparent,
   headerColor: commonTheme.headerColor,
-  buttonTitleColor: commonTheme.buttonTitleColor,
   textPlaceholderColor: '#cfcfcf',
   inputBackgroundColor: commonTheme.inputBackgroundColor,
   iconStrokeColor: '#333333',
