@@ -1,6 +1,8 @@
 import React from 'react';
-import EditIcon from '@assets/icons/edit_icon.svg';
-import DeleteIcon from '@assets/icons/delete_icon.svg';
+import EditIconLight from '@assets/icons/light/edit_icon.svg';
+import DeleteIconLight from '@assets/icons/light/delete_icon.svg';
+import EditIconDark from '@assets/icons/dark/edit_icon.svg';
+import DeleteIconDark from '@assets/icons/dark/delete_icon.svg';
 import Reanimated, {
   SharedValue,
   useAnimatedStyle,
@@ -8,6 +10,7 @@ import Reanimated, {
 import IconButton from '@primitives/ui/IconButton/IconButton';
 import styles from './styles';
 import {s} from 'react-native-size-matters';
+import {useThemes} from '@utils/themes/ThemeContext';
 
 function RightActionSwipe(
   prog: SharedValue<number>,
@@ -18,7 +21,7 @@ function RightActionSwipe(
   const IconDeleteSize = 26;
   const IconChangeSize = 28;
   const scaleTransformX = s(160);
-
+  const theme = useThemes();
 
   const styleAnimation = useAnimatedStyle(() => {
     return {
@@ -29,7 +32,7 @@ function RightActionSwipe(
   return (
     <Reanimated.View style={[styles.rightActionContainer, styleAnimation]}>
       <IconButton
-        IconSvg={EditIcon}
+        IconSvg={theme.isDarkMode ? EditIconLight : EditIconDark}
         width={IconChangeSize}
         height={IconChangeSize}
         containerStyles={styles.changeAction}
@@ -37,7 +40,7 @@ function RightActionSwipe(
         onPress={onEdit}
       />
       <IconButton
-        IconSvg={DeleteIcon}
+        IconSvg={theme.isDarkMode ? DeleteIconLight : DeleteIconDark}
         width={IconDeleteSize}
         height={IconDeleteSize}
         containerStyles={styles.deleteAction}

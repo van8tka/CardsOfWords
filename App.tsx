@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, useColorScheme} from 'react-native';
 import { LocalizationProvider } from '@utils/localization/LocalizationContext';
 import { ThemeProvider } from '@utils/themes/ThemeContext';
 import BootSplash from 'react-native-bootsplash';
@@ -27,14 +27,15 @@ function App(): React.JSX.Element {
     });
   }, []);
 
-  //todo kuzmuk need update barStyle in status bar
+  const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <Provider store={store}>
       <ToastProvider>
         <NavigationContainer>
           <ThemeProvider>
             <StatusBar
-              barStyle="light-content"
+              barStyle= {isDarkMode ? 'light-content' : 'dark-content'}
               backgroundColor={commonTheme.primaryColor}
             />
             <LocalizationProvider>

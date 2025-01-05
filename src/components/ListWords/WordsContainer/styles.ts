@@ -27,7 +27,7 @@ const styles = (theme: ITheme) => ScaledSheet.create({
   },
   foreign:{ padding: '2@vs', fontSize: '16@vs', color: theme.textPrimaryColor },
   translate:{ padding: '2@vs', fontSize: '16@vs', color: theme.textSecondaryColor },
-  transcription:{ padding: '2@vs', fontSize: '16@vs', color: theme.textPlaceholderColor },
+  transcription:{ padding: '2@vs', fontSize: '16@vs', color: theme.transcriptColor },
 });
 
 export default styles;

@@ -10,9 +10,10 @@ interface IconButtonProps {
   height?: number;
   containerStyles?: StyleProp<ViewStyle>
   iconStyle?: StyleProp<ViewStyle>;
+  strokeColor?: string;
 }
 
-function IconButton({onPress, IconSvg, width, height, containerStyles, iconStyle}: IconButtonProps): JSX.Element {
+function IconButton({strokeColor, onPress, IconSvg, width, height, containerStyles, iconStyle}: IconButtonProps): JSX.Element {
   const MIN_TOUCH_SIZE = 42;
   const paddingMinimalForTouch = () => {
     if (!height || height > MIN_TOUCH_SIZE) {return 0;}
@@ -22,7 +23,12 @@ function IconButton({onPress, IconSvg, width, height, containerStyles, iconStyle
 
   return (
     <TouchableOpacity onPress={onPress} style={[containerStyles,{ padding: vs(paddingMinimalForTouch())}]}>
-      <IconSvg width={width} height={height} style={iconStyle}/>
+      <IconSvg
+        stroke={strokeColor}
+        width={width}
+        height={height}
+        style={iconStyle}
+      />
     </TouchableOpacity>
   );
 }

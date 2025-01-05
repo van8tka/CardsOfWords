@@ -6,7 +6,8 @@ import styles from './styles';
 import {percentFormatter} from '@components/Main/AccordionContainer/formatter';
 import SwipeItem from '@primitives/ui/SwipeableItem/SwipeItem';
 import IconButton from '@primitives/ui/IconButton/IconButton';
-import AddIcon from '@assets/icons/add_transparent_icon.svg';
+import AddIconLight from '@assets/icons/light/add_transparent_icon.svg';
+import AddIconDark from '@assets/icons/dark/add_transparent_icon.svg';
 
 interface IItemContentProps {
   theme: ITheme,
@@ -50,7 +51,7 @@ function ItemsContainer({
             </View>
           </ TouchableOpacity>
           <IconButton
-            IconSvg={AddIcon}
+            IconSvg={theme.isDarkMode ? AddIconLight : AddIconDark}
             width={30}
             height={30}
             onPress={()=>onAddWord(item.id)}/>

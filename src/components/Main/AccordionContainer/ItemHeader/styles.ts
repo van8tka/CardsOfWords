@@ -13,7 +13,7 @@ const styles = (theme: ITheme) =>{
     accordTitle: {
       flex: 0.9,
       fontSize: '16@vs',
-      color: theme.textPrimaryColor,
+      color: theme.textSecondaryColor,
     },
     accordPercent: {
       fontSize: '12@vs',

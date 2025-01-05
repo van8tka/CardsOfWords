@@ -30,7 +30,7 @@ const styles = (theme: ITheme) => {
       justifyContent: 'center',
     },
     addTitle: {
-      color: theme.primaryColor,
+      color: theme.textSecondaryColor,
       fontSize: '14@vs',
       fontWeight: '500',
     },

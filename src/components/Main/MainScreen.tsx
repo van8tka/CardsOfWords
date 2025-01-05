@@ -31,6 +31,7 @@ function MainScreen() {
     <View style={styles(theme).container}>
       <AccordionContainer sections={sections} />
       <MainFloatingBtnContainer
+        theme={theme}
         onAddPress={() => navigation.navigate(RouteScreensEnum.DictionaryCreateScreen)}
         onUploadPress={()=>{}}
       />

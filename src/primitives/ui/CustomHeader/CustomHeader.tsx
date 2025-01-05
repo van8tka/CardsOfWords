@@ -25,9 +25,9 @@ const CustomHeader = ({
 
   return (
     <View style={styles(theme).header}>
-      {leftBtnIcon && <IconButton IconSvg={leftBtnIcon} onPress={onPressLeft} height={DefaultHeightLeftIcon} width={DefaultSizeIcon}/>}
+      {leftBtnIcon && <IconButton IconSvg={leftBtnIcon} strokeColor={theme.iconStrokeColor} onPress={onPressLeft} height={DefaultHeightLeftIcon} width={DefaultSizeIcon}/>}
       <Text style={styles(theme).title}>{title || ''}</Text>
-      {rightBtnIcon && <IconButton IconSvg={rightBtnIcon} onPress={onPressRight} height={DefaultSizeIcon} width={DefaultSizeIcon}/>}
+      {rightBtnIcon && <IconButton IconSvg={rightBtnIcon} strokeColor={theme.iconStrokeColor} onPress={onPressRight} height={DefaultSizeIcon} width={DefaultSizeIcon}/>}
     </View>
   );
 };

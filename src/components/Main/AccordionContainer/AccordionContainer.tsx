@@ -91,7 +91,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
     <>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={styles(theme).container}>
+        style={styles.container}>
         <Accordion
           keyExtractor={(item, index) => `${index}-${index}`}
           align="top"
@@ -102,7 +102,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
           onChange={(activeSec) => {
             setActiveSections(activeSec);
           }}
-          sectionContainerStyle={styles(theme).accordContainer}
+          sectionContainerStyle={styles.accordContainer}
         />
       </ScrollView>
     </>

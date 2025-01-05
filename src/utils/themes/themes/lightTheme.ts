@@ -2,6 +2,7 @@ import {ITheme} from '@utils/themes/ITheme';
 import commonTheme from '@utils/themes/themes/commonTheme';
 
 const lightTheme: ITheme = {
+  isDarkMode: false,
   primaryColor: commonTheme.primaryColor,
   secondaryColor: '#ffffff',
   textPrimaryColor: commonTheme.primaryColor,
@@ -12,6 +13,8 @@ const lightTheme: ITheme = {
   buttonTitleColor: commonTheme.buttonTitleColor,
   textPlaceholderColor: '#cfcfcf',
   inputBackgroundColor: commonTheme.inputBackgroundColor,
+  iconStrokeColor: '#333333',
+  transcriptColor:  '#606060',
 };
 
 export default lightTheme;

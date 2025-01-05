@@ -1,4 +1,5 @@
 import {ScaledSheet} from 'react-native-size-matters';
+import commonTheme from '@utils/themes/themes/commonTheme';
 
 export const styles = ScaledSheet.create({
   floatBtnContainer:{
@@ -10,6 +11,8 @@ export const styles = ScaledSheet.create({
     flexDirection: 'column',
   },
   addBtn:{
-    paddingBottom:  '16@vs',
+    marginBottom:  '16@vs',
+    backgroundColor: commonTheme.primaryColor,
+    borderRadius: '24@vs',
   },
 });

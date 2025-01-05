@@ -30,7 +30,7 @@ function ListWordsScreen({route}) {
   }
 
   function onAddWord() {
-    navigation.navigate(RouteScreensEnum.WordCreateScreen, {idTheme: idTheme});
+    navigation.navigate(RouteScreensEnum.WordCreateScreen, {idTheme});
   }
 
   function onStudying(){
@@ -44,9 +44,11 @@ function ListWordsScreen({route}) {
   return (
     <View style={styles(theme).container}>
       <LeftCommonHeader title={title}/>
-      <WordsContainer words={words.filter(item => item.idTheme === idTheme)} onDelete={onDeleteWord}
-                      onEdit={onEditWord}/>
+      <WordsContainer
+        words={words.filter(item => item.idTheme === idTheme)} onDelete={onDeleteWord}
+        onEdit={onEditWord}/>
       <WordsFloatingBtnContainer
+        theme={theme}
         onAddPress={onAddWord}
         onStudyingPress={onStudying}
         onImportPress={onImport}

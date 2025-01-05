@@ -40,8 +40,9 @@ const DrawerNavigator = () => {
           backgroundColor: theme.primaryColor,
         },
         headerTintColor: theme.headerColor,
-        drawerActiveTintColor:  theme.primaryColor,
+        drawerActiveTintColor:  theme.textSecondaryColor,
         drawerInactiveTintColor: theme.textSecondaryColor,
+        drawerActiveBackgroundColor: theme.primaryColorTransparent,
         drawerLabelStyle: {
           fontSize: vs(14),
         },

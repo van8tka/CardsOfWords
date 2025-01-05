@@ -1,4 +1,5 @@
 export interface ITheme {
+  isDarkMode: boolean;
   primaryColor: string;
   secondaryColor: string;
   textPrimaryColor: string;
@@ -9,4 +10,6 @@ export interface ITheme {
   buttonTitleColor: string;
   textPlaceholderColor: string;
   inputBackgroundColor: string;
+  iconStrokeColor: string;
+  transcriptColor: string;
 }
