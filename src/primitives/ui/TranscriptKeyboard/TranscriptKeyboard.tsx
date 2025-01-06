@@ -2,7 +2,14 @@ import React, {StyleProp, Text, TextStyle, TouchableOpacity, View} from 'react-n
 import {useThemes} from '@utils/themes/ThemeContext';
 import styles from './styles';
 
-function TranscriptKeyboard(){
+interface ITranscriptKeyboard {
+  value: string;
+  onChange: (value: string) => void;
+  onEnter: () => void;
+}
+
+
+function TranscriptKeyboard({value, onChange, onEnter}: ITranscriptKeyboard) {
   const theme = useThemes();
 
   const keys = [
@@ -20,15 +27,44 @@ function TranscriptKeyboard(){
     return styles(theme).charContainer;
   }
 
+  function onPressKey(keyValue: string): void {
+    let newValue = value;
+    switch (keyValue) {
+      case 'Enter': {
+        onEnter();
+        return;
+      }
+      case 'Del':{
+        if(newValue && newValue.length > 0){
+          newValue = newValue.slice(0, -1);
+        }
+        break;
+      }
+      case 'Space':{
+        newValue = newValue + ' ';
+        break;
+      }
+      default: {
+        newValue = newValue + keyValue;
+        break;
+      }
+    }
+    onChange(newValue);
+  }
+
   return (
     <View style={styles(theme).container}>
       {keys.map((key, index) => {
           return (
             <View key={index} style={styles(theme).row}>
-              {key.map((value)=> {
+              {key.map((keyValue)=> {
                 return (
-                  <TouchableOpacity key={value} style={getStyleByValue(value)}>
-                    <Text style={styles(theme).charTitle}>{value}</Text>
+                  <TouchableOpacity
+                    key={keyValue}
+                    style={getStyleByValue(keyValue)}
+                    onPress={()=>onPressKey(keyValue)}
+                  >
+                    <Text style={styles(theme).charTitle}>{keyValue}</Text>
                   </TouchableOpacity>
                 );
               })}

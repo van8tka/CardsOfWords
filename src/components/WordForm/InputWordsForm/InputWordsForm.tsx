@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, TextInput, Text, Keyboard} from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import * as Yup from 'yup';
@@ -53,26 +53,43 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
   });
 
   const onSubmit = (data: FormData) => {
+    setShowTranscript(false);
     if(word) {
       onSubmitForm({...word,
         translation: data.translateWord,
-        transcription: data.transcriptionWord,
+        transcription: getTranscript(data),
         foreign: data.foreignWord});
     } else if (idTheme) {
       onSubmitForm({
         id: 0,
         idTheme: idTheme,
         translation: data.translateWord,
-        transcription: data.transcriptionWord,
+        transcription: getTranscript(data),
         foreign: data.foreignWord,
         isLearned: false,
       });
     }
   };
 
-  function onTranscriptFocus() {
-    if(isVisibleTranscriptKeyboard) {Keyboard.dismiss();}
+  function getTranscript(data: FormData){
+    return isVisibleTranscriptKeyboard ? transcript : data.transcriptionWord;
   }
+
+  function onFocusTranscript(){
+    if(isVisibleTranscriptKeyboard) {
+      setShowTranscript(true);
+      Keyboard.dismiss();
+    }
+  }
+
+  function onFocusWordInput(){
+    if(isVisibleTranscriptKeyboard) {
+      setShowTranscript(false);
+    }
+  }
+
+  const [transcript, setTranscript] = useState<string>(word?.transcription || '');
+  const [showTranscript, setShowTranscript] = useState<boolean>(false);
 
   return (
     <View style={styles(theme).container}>
@@ -87,6 +104,7 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onChangeText={onChange}
             value={value}
             maxLength={maxLenghtWords}
+            onFocus={onFocusWordInput}
           />
         )}
       />
@@ -103,11 +121,13 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onChangeText={onChange}
             value={value}
             maxLength={maxLenghtWords}
+            onFocus={onFocusWordInput}
           />
         )}
       />
       {errors.translateWord && <Text style={styles(theme).error}>{errors.translateWord.message}</Text>}
 
+      {!isVisibleTranscriptKeyboard &&
       <Controller
         control={control}
         name={'transcriptionWord'}
@@ -119,14 +139,27 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onChangeText={onChange}
             value={value}
             maxLength={maxLenghtWords}
-            onFocus={onTranscriptFocus}
           />
         )}
-      />
+      />}
+      {isVisibleTranscriptKeyboard &&
+        <TextInput
+          style={styles(theme).input}
+          placeholder={locale.transcriptionWord}
+          value={transcript}
+          maxLength={maxLenghtWords}
+          onFocus={onFocusTranscript}
+        />}
+
       {errors.transcriptionWord && <Text style={styles(theme).error}>{errors.transcriptionWord.message}</Text>}
 
       <PrimaryButton title={locale.continue} onPress={handleSubmit(onSubmit)} />
-      {isVisibleTranscriptKeyboard && <TranscriptKeyboard/> }
+      {isVisibleTranscriptKeyboard && showTranscript &&
+        <TranscriptKeyboard
+          value={transcript}
+          onChange={setTranscript}
+          onEnter={handleSubmit(onSubmit)}
+        /> }
     </View>
   );
 };
