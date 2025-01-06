@@ -33,7 +33,11 @@ const styles = (theme: ITheme) => {
       fontSize: '20@vs',
     },
     button: {
+      backgroundColor: theme.primaryColorTransparent,
       flex: 1,
+    },
+    icon: {
+      alignSelf: 'center',
     },
   });
 };

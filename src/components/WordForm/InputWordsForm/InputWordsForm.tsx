@@ -10,6 +10,7 @@ import {useLocalization} from '@utils/localization/LocalizationContext';
 import styles from '@components/WordForm/InputWordsForm/styles';
 import PrimaryButton from '@primitives/ui/PrimaryButton/PrimaryButton';
 import TranscriptKeyboard from '@primitives/ui/TranscriptKeyboard/TranscriptKeyboard';
+import log from '@utils/logger';
 
 const maxLenghtWords = 200;
 // Определяем схему валидации с Yup
@@ -38,9 +39,11 @@ interface InputWordsFormProps {
 }
 
 const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitForm}: InputWordsFormProps) => {
+  log.info('InputWordsForm', 'render');
   const theme = useThemes();
   const locale = useLocalization();
-//todo need use appSlice with settings
+
+  //todo need use appSlice with settings
   const isVisibleTranscriptKeyboard = true;
 
   const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
