@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Text } from 'react-native';
+import {View, TextInput, Text, Keyboard} from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,6 +9,7 @@ import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import styles from '@components/WordForm/InputWordsForm/styles';
 import PrimaryButton from '@primitives/ui/PrimaryButton/PrimaryButton';
+import TranscriptKeyboard from '@primitives/ui/TranscriptKeyboard/TranscriptKeyboard';
 
 const maxLenghtWords = 200;
 // Определяем схему валидации с Yup
@@ -39,6 +40,9 @@ interface InputWordsFormProps {
 const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitForm}: InputWordsFormProps) => {
   const theme = useThemes();
   const locale = useLocalization();
+//todo need use appSlice with settings
+  const isVisibleTranscriptKeyboard = true;
+
   const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema(locale)),
     defaultValues: {
@@ -65,6 +69,10 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
       });
     }
   };
+
+  function onTranscriptFocus() {
+    if(isVisibleTranscriptKeyboard) {Keyboard.dismiss();}
+  }
 
   return (
     <View style={styles(theme).container}>
@@ -111,12 +119,14 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onChangeText={onChange}
             value={value}
             maxLength={maxLenghtWords}
+            onFocus={onTranscriptFocus}
           />
         )}
       />
       {errors.transcriptionWord && <Text style={styles(theme).error}>{errors.transcriptionWord.message}</Text>}
 
       <PrimaryButton title={locale.continue} onPress={handleSubmit(onSubmit)} />
+      {isVisibleTranscriptKeyboard && <TranscriptKeyboard/> }
     </View>
   );
 };
