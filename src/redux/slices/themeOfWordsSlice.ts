@@ -67,7 +67,7 @@ const themeOfWordsSlice = createSlice({
           lastUpdate: new Date().toLocaleString(),
         };
       });
-      state.themes = {...state.themes, ...newThemes};
+      state.themes = [...state.themes, ...newThemes];
     },
   },
 });

@@ -13,7 +13,7 @@ import TranscriptKeyboard from '@primitives/ui/TranscriptKeyboard/TranscriptKeyb
 import log from '@utils/logger';
 
 const maxLenghtWords = 200;
-// Определяем схему валидации с Yup
+
 const schema = (locale: ILocalizedStrings) => Yup.object().shape({
   foreignWord: Yup.string()
     .required(locale.requiredForeign)
@@ -25,7 +25,6 @@ const schema = (locale: ILocalizedStrings) => Yup.object().shape({
     .max(maxLenghtWords, locale.validationWordMax),
 });
 
-// Определяем типы для формы
 type FormData = {
   foreignWord: string;
   translateWord: string;

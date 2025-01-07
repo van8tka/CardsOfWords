@@ -12,6 +12,7 @@ import {MainStackParamList} from '@navigators/types';
 import {RouteScreensEnum} from '@navigators/screens';
 import WordsContainer from '@components/ListWords/WordsContainer/WordsContainer';
 import WordsFloatingBtnContainer from '@components/ListWords/FloatingBtnContainer/WordsFloatingBtnContainer';
+import {useImportFromFile} from '@hooks/useImportFromFile';
 
 // @ts-ignore
 function ListWordsScreen({route}) {
@@ -20,6 +21,7 @@ function ListWordsScreen({route}) {
   const theme = useThemes();
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
+  const pickFile = useImportFromFile();
 
   function onDeleteWord(idWord: number) {
     dispatch(removeWord(idWord));
@@ -37,7 +39,8 @@ function ListWordsScreen({route}) {
     console.log('+++ press studying btn');
   }
   function onImport(){
-    console.log('+++ press import');
+    //todo need use loader
+    pickFile(idTheme);
   }
 
 

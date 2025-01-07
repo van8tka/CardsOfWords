@@ -50,7 +50,7 @@ const wordSlice = createSlice({
       };
     });
 
-    state.words = {...state.words, ...newWords};
+    state.words = [...state.words, ...newWords];
     },
 
     updateWord: (state, action: PayloadAction<Word>) => {

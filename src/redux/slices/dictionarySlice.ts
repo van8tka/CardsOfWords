@@ -53,7 +53,7 @@ const dictionarySlice = createSlice({
           percentOfLearned: 0,
         };
       });
-      state.dictionaries = {...state.dictionaries, ...newDictionaries};
+      state.dictionaries = [...state.dictionaries, ...newDictionaries];
     },
   }});
 
