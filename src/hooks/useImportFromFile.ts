@@ -1,16 +1,17 @@
 import DocumentPicker from 'react-native-document-picker';
 import RNFS from 'react-native-fs';
 import log from '@utils/logger';
-import Word from '@models/Words';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {addMultiWords} from '@redux/slices/wordSlice';
+import {parseContent} from '@utils/parseContent';
 
 export function useImportFromFile() {
 
   const dispatch = useAppDispatch();
+  const TAG = 'useImportFromFile';
 
   async function pickFile(idTheme: number) {
-    log.info('useImportFromFile','Picking file');
+    log.info(TAG,'Picking file');
     try {
       const res = await DocumentPicker.pick({
         type: [DocumentPicker.types.plainText],
@@ -21,7 +22,7 @@ export function useImportFromFile() {
          log.debug(content);
          if(!content)
          {
-           log.warn('useImportFromFile', 'selected file is empty: ', filePath);
+           log.warn(TAG, 'selected file is empty: ', filePath);
            return;
          }
          const words = parseContent(idTheme, content);
@@ -32,35 +33,15 @@ export function useImportFromFile() {
     } catch (err) {
       if (DocumentPicker.isCancel(err)) {
         // Пользователь отменил выбор файла
-        log.info('useImportFromFile','User cancelled the picker');
+        log.info(TAG,'User cancelled the picker');
       } else {
-        log.error('useImportFromFile',err);
+        log.error(TAG,err);
       }
     }
   }
 
 
-  function parseContent(idTheme: number, content: string): Word[] {
-    const lines = content.split(/\r?\n/);
-    const words: Word[] = [];
-    const regex = /(.*?)\s*\[(.*?)\]\s*(.*)/;
 
-    for (let i = 0; i < lines.length; i++) {
-      const match = regex.exec(lines[i]);
-      if(match){
-        const word: Word = {
-          id: 0,
-          idTheme: idTheme,
-          foreign: match[1],
-          transcription: match[2],
-          translation: match[3],
-          isLearned: false,
-        };
-        words.push(word);
-      }
-    }
-    return words;
-  }
 
 
   return pickFile;
