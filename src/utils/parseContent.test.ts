@@ -94,6 +94,7 @@ describe('parseContent', () => {
   test('success parse string null', () => {
     const enterData = null;
     const expectedData: Word[] = [];
+    // @ts-ignore
     const result = parseContent(enterIdTheme, enterData);
     expect(result).toEqual(expectedData);
   });
@@ -101,6 +102,7 @@ describe('parseContent', () => {
   test('success parse string undefined', () => {
     const enterData = null;
     const expectedData: Word[] = [];
+    // @ts-ignore
     const result = parseContent(enterIdTheme, enterData);
     expect(result).toEqual(expectedData);
   });
