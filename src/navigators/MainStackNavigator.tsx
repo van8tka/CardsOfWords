@@ -12,6 +12,8 @@ import ThemeWordsEditScreen from '@components/ThemeOfWordsForm/ThemeWordsEditScr
 import WordEditScreen from '@components/WordForm/WordEditScreen';
 import WordCreateScreen from '@components/WordForm/WordCreateScreen';
 import ListWordsScreen from '@components/ListWords/ListWordsScreen';
+import {RouteNavEnum} from '@navigators/navigators';
+import StudyingTabNavigator from '@navigators/StudyingTabNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -72,6 +74,11 @@ function MainStackNavigator () {
       <Stack.Screen
         name={RouteScreensEnum.ListWordsScreen}
         component={ListWordsScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={RouteNavEnum.StudyingTabNavigator}
+        component={StudyingTabNavigator}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

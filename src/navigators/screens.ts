@@ -9,4 +9,7 @@ export enum RouteScreensEnum {
   WordCreateScreen = 'WordCreateScreen',
   WordEditScreen = 'WordEditScreen',
   ListWordsScreen = 'ListWordsScreen',
+  RepeatWordScreen = 'RepeatWordScreen',
+  SelectWordScreen = 'SelectWordScreen',
+  WriteWordScreen = 'WriteWordScreen',
 }

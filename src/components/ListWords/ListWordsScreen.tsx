@@ -13,6 +13,7 @@ import {RouteScreensEnum} from '@navigators/screens';
 import WordsContainer from '@components/ListWords/WordsContainer/WordsContainer';
 import WordsFloatingBtnContainer from '@components/ListWords/FloatingBtnContainer/WordsFloatingBtnContainer';
 import {useImportFromFile} from '@hooks/useImportFromFile';
+import {RouteNavEnum} from '@navigators/navigators';
 
 // @ts-ignore
 function ListWordsScreen({route}) {
@@ -36,7 +37,7 @@ function ListWordsScreen({route}) {
   }
 
   function onStudying(){
-    console.log('+++ press studying btn');
+    navigation.navigate(RouteNavEnum.StudyingTabNavigator,{screen: RouteScreensEnum.WordCreateScreen, idTheme, title});
   }
   function onImport(){
     //todo need use loader

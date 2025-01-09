@@ -16,6 +16,7 @@ import {MainStackParamList} from '@navigators/types';
 import {RouteScreensEnum} from '@navigators/screens';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {removeTheme} from '@redux/slices/themeOfWordsSlice';
+import {RouteNavEnum} from '@navigators/navigators';
 
 type SectionDictionary = {
   dictionary: Dictionary,
@@ -44,9 +45,9 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   function onAddThemeOfWords(idDictionary: number){
     navigation.navigate(RouteScreensEnum.ThemeWordsCreateScreen, {idDictionary});
   }
-//todo need implement select theme words for studie
+
   function onSelectThemeOfWords(themeWords: ThemeOfWords){
-    console.log('+++ selected theme:',themeWords);
+     navigation.navigate(RouteNavEnum.StudyingTabNavigator, { screen: RouteScreensEnum.RepeatWordScreen, idTheme: themeWords.id, title: themeWords.name });
   }
 
   function onEditThemeOfWords(themeWords: ThemeOfWords){
