@@ -52,11 +52,9 @@ function getDateLogFormat(): string {
 
 function formatFunction(level:string, extension: string|null, msgs: any) : string {
   const formattedDate = getDateLogFormat();
-
   if(msgs && msgs.length > 1){
-    const ind = msgs.indexOf(',');
-    const tag = msgs.slice(0,ind);
-    const msg = msgs.slice(ind + 2);
+    const tag = msgs[0];
+    const msg = msgs.slice(1).join('; ');
 
     return `${formattedDate} | ${level.toUpperCase()} : ${tag} | ${msg}`;
   }
