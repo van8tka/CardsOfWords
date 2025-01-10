@@ -1,6 +1,7 @@
 export interface ITheme {
   isDarkMode: boolean;
   primaryColor: string;
+  primaryModeColor: string;
   secondaryColor: string;
   textPrimaryColor: string;
   textSecondaryColor: string;

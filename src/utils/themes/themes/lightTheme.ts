@@ -3,6 +3,7 @@ import commonTheme from '@utils/themes/themes/commonTheme';
 
 const lightTheme: ITheme = {
   isDarkMode: false,
+  primaryModeColor: '#adf2d0',
   primaryColor: commonTheme.primaryColor,
   secondaryColor: '#ffffff',
   textPrimaryColor: commonTheme.primaryColor,

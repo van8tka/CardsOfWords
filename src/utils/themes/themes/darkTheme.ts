@@ -2,6 +2,7 @@ import {ITheme} from '@utils/themes/ITheme';
 import commonTheme from '@utils/themes/themes/commonTheme';
 
 const darkTheme: ITheme = {
+  primaryModeColor: '#1f6d4a',
   isDarkMode: true,
   primaryColor: commonTheme.primaryColor,
   secondaryColor: '#333333',
