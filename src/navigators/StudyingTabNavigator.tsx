@@ -18,14 +18,16 @@ import {vs} from 'react-native-size-matters';
 
 const Tab = createBottomTabNavigator();
 
-function StudyingTabNavigator() {
+// @ts-ignore
+function StudyingTabNavigator({route}) {
   const theme = useThemes();
 
-  function tabHeader(props: BottomTabNavigatorProps){
-    console.log('+++ props', props.route?.params);
-    return <LeftCommonHeader title={'test 1'} />;
+  function tabHeader(){
+    const title = route?.params?.title ?? '';
+    return <LeftCommonHeader title={title} />;
   }
 
+  // @ts-ignore
   const touchableOpacity = props => <TouchableOpacity {...props} />;
 
   const focusedStyles = {
