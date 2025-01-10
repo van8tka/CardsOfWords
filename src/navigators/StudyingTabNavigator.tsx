@@ -1,5 +1,5 @@
 import React from 'react';
-import {BottomTabNavigatorProps, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {RouteScreensEnum} from '@navigators/screens';
 import RepeatWordScreen from '@components/Studying/RepeatWord/RepeatWordScreen';
 import SelectWordScreen from '@components/Studying/SelectWord/SelectWordScreen';
@@ -14,6 +14,7 @@ import SelectIconLight from '@assets/icons/light/select_icon.svg';
 import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
 import {TouchableOpacity, View} from 'react-native';
 import {vs} from 'react-native-size-matters';
+import {SvgProps} from 'react-native-svg';
 
 
 const Tab = createBottomTabNavigator();
@@ -38,40 +39,19 @@ function StudyingTabNavigator({route}) {
     borderRadius: 5,
   };
 
- function getRepeatWordTabIcon(props: any) {
-   const {focused, size} = props;
-   if(theme.isDarkMode){
+  function getTabBarIcon(
+    prop: { focused: boolean; color: string; size: number },
+    TabIconLight: React.FC<SvgProps>,
+    TabIconDark: React.FC<SvgProps>) {
+    const {focused, size} = prop;
+    if (theme.isDarkMode) {
       return focused ?
-        <View style={focusedStyles}><FlipIconLight height={size} width={size} /></View> :
-        <FlipIconLight width={size} height={size} />;
-   }
-   return focused ?
-     <View style={focusedStyles}><FlipIconDark height={size} width={size} /></View> :
-    <FlipIconDark width={size} height={size} />;
- }
-
-  function getSelectWordTabIcon(props: any) {
-    const {focused, size} = props;
-   if(theme.isDarkMode){
-      return focused ?
-        <View style={focusedStyles}><SelectIconLight height={size} width={size} /></View> :
-        <SelectIconLight width={size} height={size} />;
+        <View style={focusedStyles}><TabIconLight height={size} width={size}/></View> :
+        <TabIconLight width={size} height={size}/>;
     }
     return focused ?
-      <View style={focusedStyles}><SelectIconDark height={size} width={size} /></View> :
-      <SelectIconDark width={size} height={size} />;
-  }
-
-  function getWriteWordTabIcon(props: any) {
-    const {focused, size} = props;
-    if(theme.isDarkMode){
-      return focused ?
-        <View style={focusedStyles}><KeyboardIconLight height={size} width={size} /></View> :
-        <KeyboardIconLight width={size} height={size} />;
-    }
-    return focused ?
-      <View style={focusedStyles}><KeyboardIconDark height={size} width={size} /></View> :
-      <KeyboardIconDark width={size} height={size} />;
+      <View style={focusedStyles}><TabIconDark height={size} width={size}/></View> :
+      <TabIconDark width={size} height={size}/>;
   }
 
   return (
@@ -85,7 +65,7 @@ function StudyingTabNavigator({route}) {
         name={RouteScreensEnum.RepeatWordScreen}
         component={RepeatWordScreen}
         options={{
-          tabBarIcon: getRepeatWordTabIcon,
+          tabBarIcon: (prop) => getTabBarIcon(prop, FlipIconLight, FlipIconDark),
           header: tabHeader,
           tabBarButton: props => touchableOpacity(props),
         }}
@@ -93,14 +73,14 @@ function StudyingTabNavigator({route}) {
       <Tab.Screen
         name={RouteScreensEnum.SelectWordScreen}
         component={SelectWordScreen}  options={{
-        tabBarIcon: getSelectWordTabIcon,
+        tabBarIcon: (prop) => getTabBarIcon(prop, SelectIconLight, SelectIconDark),
         header: tabHeader,
         tabBarButton: props => touchableOpacity(props),
       }}/>
       <Tab.Screen
         name={RouteScreensEnum.WriteWordScreen}
         component={WriteWordScreen}  options={{
-        tabBarIcon: getWriteWordTabIcon,
+        tabBarIcon: (prop) => getTabBarIcon(prop, KeyboardIconLight, KeyboardIconDark),
         header: tabHeader,
         tabBarButton: props => touchableOpacity(props),
       }}/>
