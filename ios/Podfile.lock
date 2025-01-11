@@ -1381,7 +1381,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-safe-area-context (5.0.0):
+  - react-native-safe-area-context (5.1.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1394,8 +1394,8 @@ PODS:
     - React-featureflags
     - React-graphics
     - React-ImageManager
-    - react-native-safe-area-context/common (= 5.0.0)
-    - react-native-safe-area-context/fabric (= 5.0.0)
+    - react-native-safe-area-context/common (= 5.1.0)
+    - react-native-safe-area-context/fabric (= 5.1.0)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1404,7 +1404,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-safe-area-context/common (5.0.0):
+  - react-native-safe-area-context/common (5.1.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1425,7 +1425,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-safe-area-context/fabric (5.0.0):
+  - react-native-safe-area-context/fabric (5.1.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1735,21 +1735,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNFBAnalytics (21.6.1):
-    - Firebase/Analytics (= 11.5.0)
-    - React-Core
-    - RNFBApp
-  - RNFBApp (21.6.1):
-    - Firebase/CoreOnly (= 11.5.0)
-    - React-Core
-  - RNFBCrashlytics (21.6.1):
-    - Firebase/Crashlytics (= 11.5.0)
-    - FirebaseCoreExtension
-    - React-Core
-    - RNFBApp
-  - RNFS (2.20.0):
-    - React-Core
-  - RNGestureHandler (2.21.2):
+  - RNCAsyncStorage (2.1.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1770,7 +1756,42 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNLocalize (3.3.0):
+  - RNFBAnalytics (21.6.2):
+    - Firebase/Analytics (= 11.5.0)
+    - React-Core
+    - RNFBApp
+  - RNFBApp (21.6.2):
+    - Firebase/CoreOnly (= 11.5.0)
+    - React-Core
+  - RNFBCrashlytics (21.6.2):
+    - Firebase/Crashlytics (= 11.5.0)
+    - FirebaseCoreExtension
+    - React-Core
+    - RNFBApp
+  - RNFS (2.20.0):
+    - React-Core
+  - RNGestureHandler (2.22.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNLocalize (3.4.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1878,7 +1899,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (4.4.0):
+  - RNScreens (4.5.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1899,9 +1920,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNScreens/common (= 4.4.0)
+    - RNScreens/common (= 4.5.0)
     - Yoga
-  - RNScreens/common (4.4.0):
+  - RNScreens/common (4.5.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1923,7 +1944,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNSVG (15.10.1):
+  - RNSVG (15.11.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1943,9 +1964,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNSVG/common (= 15.10.1)
+    - RNSVG/common (= 15.11.1)
     - Yoga
-  - RNSVG/common (15.10.1):
+  - RNSVG/common (15.11.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2037,6 +2058,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
@@ -2199,6 +2221,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNBootSplash:
     :path: "../node_modules/react-native-bootsplash"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNFBAnalytics:
     :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
@@ -2272,7 +2296,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: c79216258c659d70cdebaf76f8c110cc46dce8db
   React-microtasksnativemodule: 8d918db5d7c4526de2a0a4692d878a21b338c3f0
   react-native-document-picker: 1e082836a633ca9e7c75758036ff42535baaf36b
-  react-native-safe-area-context: 16c455e62ad9dae353281f8099a4f93800adabe6
+  react-native-safe-area-context: e0625eb857b816dff4aca46e125759cb0927e225
   React-nativeconfig: 565ebf4340d9ede95b523f0e3640f48286985ef5
   React-NativeModulesApple: ea083a4663dae82c99fe4c2186b11504ac4147e1
   React-perflogger: ceb97dd4e5ca6ff20eebb5a6f9e00312dcdea872
@@ -2301,15 +2325,16 @@ SPEC CHECKSUMS:
   ReactCodegen: 8d7f9f05befdeb108948bbaa18d149b25a964f72
   ReactCommon: 858d61cce81635d57be89348568b603e838b3cac
   RNBootSplash: 0ea38725fdeed2f4536711ddf5f699f0be3ef4f7
-  RNFBAnalytics: 1eab488eb92fb35aab0ac916e00480314e995df0
-  RNFBApp: a3c9c3b23aa2d77001ce62b5a997325927593c12
-  RNFBCrashlytics: c8cea289b99b47519311d3f3161eb62226d7db87
+  RNCAsyncStorage: d494bdee892cc6a4d790c960afb7b5dd1d91abb1
+  RNFBAnalytics: cabbc0a315593670b03eeb21f683253657f3ecff
+  RNFBApp: c0543476dee81ed5fc34d06db2f37b8e7e353cf3
+  RNFBCrashlytics: 2da611146e0e923d1cf70b24d63941e5ef7b7648
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
-  RNGestureHandler: 15ee1ab573a954c92641877ca946e2680f2e58da
-  RNLocalize: 88276d6628aa5056203fdf6b32a349f6a721fa33
+  RNGestureHandler: 73e6b3eb6a65c764f0bca44b6ab5ac259d316a96
+  RNLocalize: 6430116749d2a7b087c80c4e17f0e9ab8f449dee
   RNReanimated: 77a04017cdf54b9da500ccefde56d9d15b8ddff6
-  RNScreens: 8ae716a7e26b9ecee7f2856e6ff47b8e7e253ee8
-  RNSVG: 16775caac1e5d193c876ee15431494d7a9649aec
+  RNScreens: c5be23653cbe82a7e44c7719af3465e2f152c791
+  RNSVG: 3cd6669b7ad658c8b482db630dccf364c3b59cfb
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 7548e4449365bf0ef60db4aefe58abff37fcabec
 

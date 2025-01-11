@@ -1,24 +1,19 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import ThemeOfWords from '@models/ThemeOfWords';
 
+const getCurrentDate = (): string => {
+  return  new Date().toISOString();
+};
 
 const initialState = {
   themes: [
     {
     id: 1,
-    name: 'Дом',
+    name: 'Мои слова',
     idDictionary: 1,
-    percentOfLearned: 25,
-    lastUpdate: new Date().toLocaleString(),
+    percentOfLearned: 0,
+    lastUpdate: getCurrentDate(),
     isBeginLearned: true,
-    },
-    {
-      id: 2,
-      name: 'Аэропорт',
-      idDictionary: 1,
-      percentOfLearned: 0,
-      lastUpdate: new Date().toLocaleString(),
-      isBeginLearned: false,
     },
   ],
 };
@@ -29,13 +24,15 @@ const themeOfWordsSlice = createSlice({
   reducers: {
     addTheme: (state, action: PayloadAction<{name: string, idDictionary: number}>) => {
       const lastId = state.themes?.at(-1)?.id || 0;
+      const currentDate = getCurrentDate();
+
       const newTheme: ThemeOfWords = {
         id: lastId + 1,
         idDictionary: action.payload.idDictionary,
         name: action.payload.name,
         percentOfLearned: 0,
         isBeginLearned: false,
-        lastUpdate: new Date().toLocaleString(),
+        lastUpdate: currentDate,
       };
 
       state.themes.push(newTheme);
@@ -43,7 +40,8 @@ const themeOfWordsSlice = createSlice({
 
     updateTheme: (state, action: PayloadAction<ThemeOfWords>) => {
       const index = state.themes.findIndex((d) => d.id === action.payload.id);
-      state.themes[index] = {...action.payload,  lastUpdate: new Date().toLocaleString(),};
+      const currentDate = getCurrentDate();
+      state.themes[index] = {...action.payload,  lastUpdate: currentDate};
     },
 
     removeTheme: (state, action: PayloadAction<number>) => {
@@ -57,6 +55,7 @@ const themeOfWordsSlice = createSlice({
 
     addMultiThemes: (state, action: PayloadAction<ThemeOfWords[]>) => {
       const lastId = state.themes?.at(-1)?.id || 0;
+      const currentDate = getCurrentDate();
       const newThemes = action.payload.map((item, index) => {
         return {
           id: lastId + 1 + index,
@@ -64,7 +63,7 @@ const themeOfWordsSlice = createSlice({
           name: item.name,
           percentOfLearned: 0,
           isBeginLearned: false,
-          lastUpdate: new Date().toLocaleString(),
+          lastUpdate: currentDate,
         };
       });
       state.themes = [...state.themes, ...newThemes];

@@ -7,10 +7,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import commonTheme from '@utils/themes/themes/commonTheme';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from './App.styles';
-import store from '@redux/store';
+import {store, persistor} from '@redux/store';
 import DrawerNavigator from '@navigators/DrawerNavigator';
 import { Provider } from 'react-redux';
 import {ToastProvider} from '@utils/toast/ToastContext';
+import {PersistGate} from 'redux-persist/integration/react';
 
 
 function App(): React.JSX.Element {
@@ -31,6 +32,7 @@ function App(): React.JSX.Element {
 
   return (
     <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
       <ToastProvider>
         <NavigationContainer>
           <ThemeProvider>
@@ -48,6 +50,7 @@ function App(): React.JSX.Element {
           </ThemeProvider>
         </NavigationContainer>
       </ToastProvider>
+      </PersistGate>
     </Provider>
   );
 }

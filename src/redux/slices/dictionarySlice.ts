@@ -6,18 +6,8 @@ const initialState = {
     [
       {
         id: 1,
-        name: 'English',
-        percentOfLearned: 20,
-      },
-      {
-        id:2,
-        name: 'Esperanto',
+        name: 'Мой словарь',
         percentOfLearned: 0,
-      },
-      {
-        id:3,
-        name: 'Марсианское наречие',
-        percentOfLearned: 49,
       },
     ],
 };
