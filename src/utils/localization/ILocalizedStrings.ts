@@ -30,6 +30,9 @@ interface ILocalizedStrings {
   transcriptionWord: string;
   editWordToast: string;
   addWordToast: string;
+  allWords: string;
+  learnedWords: string;
+  unlearnedWords: string;
 }
 
 export default ILocalizedStrings;

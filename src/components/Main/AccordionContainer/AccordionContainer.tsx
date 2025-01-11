@@ -47,7 +47,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   }
 
   function onSelectThemeOfWords(themeWords: ThemeOfWords){
-     navigation.navigate(RouteNavEnum.StudyingTabNavigator, { screen: RouteScreensEnum.RepeatWordScreen, idTheme: themeWords.id, title: themeWords.name });
+     navigation.navigate(RouteNavEnum.StudyingTabNavigator, { screen: RouteScreensEnum.RepeatWordScreen, params: {idTheme: themeWords.id, title: themeWords.name }});
   }
 
   function onEditThemeOfWords(themeWords: ThemeOfWords){

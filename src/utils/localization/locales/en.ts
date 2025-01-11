@@ -31,7 +31,10 @@ const en: ILocalizedStrings = {
   emptyWordsList: 'In the selected dictionary\nno words',
   validationWordMax: 'Max length is 200 characters',
   requiredTranslate: 'Foreign word is required',
-  requiredForeign: 'Translate word is required'
+  requiredForeign: 'Translate word is required',
+  allWords: 'All words',
+  learnedWords: 'Learned words',
+  unlearnedWords: 'Unlearned words',
 };
 
 export default en;

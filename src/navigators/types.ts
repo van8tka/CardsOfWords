@@ -11,5 +11,5 @@ export type MainStackParamList = {
   WordCreateScreen: { idTheme: number };
   WordEditScreen: { word: Word };
   ListWordsScreen: { idTheme: number, title: string };
-  StudyingTabNavigator: { screen: string, idTheme: number, title: string };
-};
+  StudyingTabNavigator: { screen: string, params: {idTheme: number, title: string} };
+ };

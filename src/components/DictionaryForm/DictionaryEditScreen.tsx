@@ -5,7 +5,7 @@ import React from 'react';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {updateDictionary} from '@redux/slices/dictionarySlice';
 import {useNavigation} from '@react-navigation/native';
-import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
+import LeftRightSuccessHeader from '@primitives/ui/CustomHeader/LeftRightSuccessHeader';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import Dictionary from '@models/Dictionary';
 import InputDictionary from '@components/DictionaryForm/InputDictionary/InputDictionary';
@@ -38,7 +38,7 @@ const DictionaryEditScreen = ({route}) => {
 
   return (
     <View style={styles(theme).container}>
-      <LeftRightCommonHeader title={localization.editDictionary} onPressRight={onPressContinue} />
+      <LeftRightSuccessHeader title={localization.editDictionary} onPressRight={onPressContinue} />
       <InputDictionary text={text} setText={setText} placeholder={localization.dictionaryPlaceholder} />
     </View>
   );

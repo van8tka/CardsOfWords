@@ -31,7 +31,10 @@ const ru: ILocalizedStrings = {
   emptyWordsList: 'В выбранном словаре\nнет слов',
   validationWordMax: 'Максимальная длина слова 200 символов',
   requiredTranslate: 'Введите перевод слова',
-  requiredForeign: 'Введите иностранное слово'
+  requiredForeign: 'Введите иностранное слово',
+  allWords: 'Все слова',
+  learnedWords: 'Выученные слова',
+  unlearnedWords: 'Невыученные слова',
 };
 
 export default ru;

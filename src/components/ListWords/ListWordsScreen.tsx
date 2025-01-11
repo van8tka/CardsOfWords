@@ -37,7 +37,7 @@ function ListWordsScreen({route}) {
   }
 
   function onStudying(){
-    navigation.navigate(RouteNavEnum.StudyingTabNavigator,{screen: RouteScreensEnum.WordCreateScreen, idTheme, title});
+    navigation.navigate(RouteNavEnum.StudyingTabNavigator,{screen: RouteScreensEnum.WordCreateScreen, params: { idTheme, title }});
   }
   function onImport(){
     //todo need use loader

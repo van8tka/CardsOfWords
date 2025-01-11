@@ -4,7 +4,7 @@ import {useLocalization} from '@utils/localization/LocalizationContext';
 import React from 'react';
 import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {useNavigation} from '@react-navigation/native';
-import LeftRightCommonHeader from '@primitives/ui/CustomHeader/LeftRightCommonHeader';
+import LeftRightSuccessHeader from '@primitives/ui/CustomHeader/LeftRightSuccessHeader';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import {addTheme} from '@redux/slices/themeOfWordsSlice';
 import InputThemeWords from '@components/ThemeOfWordsForm/InputThemeWords/InputThemeWords';
@@ -36,7 +36,7 @@ function ThemeWordsCreateScreen({route}) {
 
   return (
     <View style={styles(theme).container}>
-      <LeftRightCommonHeader title={localization.addThemeWords} onPressRight={onPressContinue} />
+      <LeftRightSuccessHeader title={localization.addThemeWords} onPressRight={onPressContinue} />
       <InputThemeWords text={text} setText={setText} placeholder={localization.themeWordsPlaceholder} />
     </View>
   );
