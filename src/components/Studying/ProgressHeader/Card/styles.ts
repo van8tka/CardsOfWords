@@ -1,5 +1,7 @@
 import {ITheme} from '@utils/themes/ITheme';
-import {ScaledSheet} from 'react-native-size-matters';
+import {s, ScaledSheet} from 'react-native-size-matters';
+
+export const CARD_WIDTH = s(260);
 
 const styles = (theme: ITheme) => {
   return ScaledSheet.create({
@@ -9,7 +11,7 @@ const styles = (theme: ITheme) => {
       alignItems: 'center',
     },
     card: {
-      width: '260@s',
+      width: CARD_WIDTH,
       height: '200@vs',
       backgroundColor: theme.primaryColor,
       borderRadius: 10,

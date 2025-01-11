@@ -11,9 +11,9 @@ export function parseContent(idTheme: number, content: string): Word[] {
       const word: Word = {
         id: 0,
         idTheme: idTheme,
-        foreign: match[1],
+        foreign: match[3],
         transcription: match[2] ? `[${match[2]}]` : '',
-        translation: match[3],
+        translation: match[1],
         isLearned: false,
       };
       words.push(word);
