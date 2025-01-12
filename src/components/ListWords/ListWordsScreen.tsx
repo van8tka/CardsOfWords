@@ -12,8 +12,8 @@ import {RouteScreensEnum} from '@navigators/screens';
 import WordsContainer from '@components/ListWords/WordsContainer/WordsContainer';
 import WordsFloatingBtnContainer from '@components/ListWords/FloatingBtnContainer/WordsFloatingBtnContainer';
 import {useImportFromFile} from '@hooks/useImportFromFile';
-import {RouteNavEnum} from '@navigators/navigators';
 import {appStyles} from '../../../App.styles';
+import useNavigateToStudying from '@hooks/useNavigateToStudying';
 
 // @ts-ignore
 function ListWordsScreen({route}) {
@@ -23,6 +23,7 @@ function ListWordsScreen({route}) {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const pickFile = useImportFromFile();
+  const studyNavigation = useNavigateToStudying();
 
   function onDeleteWord(idWord: number) {
     dispatch(removeWord(idWord));
@@ -37,7 +38,7 @@ function ListWordsScreen({route}) {
   }
 
   function onStudying(){
-    navigation.navigate(RouteNavEnum.StudyingTabNavigator,{screen: RouteScreensEnum.WordCreateScreen, params: { idTheme, title }});
+    studyNavigation.navigate(idTheme, title);
   }
   function onImport(){
     //todo need use loader

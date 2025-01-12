@@ -37,6 +37,7 @@ const en: ILocalizedStrings = {
   unlearnedWords: 'Unlearned words',
   version: 'Version',
   createdBy: 'Created by: Ivan Kuzmuk',
+  noWordsForStudying: 'No word for studying, need add words',
 };
 
 export default en;

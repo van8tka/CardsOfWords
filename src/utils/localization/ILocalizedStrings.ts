@@ -35,6 +35,7 @@ interface ILocalizedStrings {
   unlearnedWords: string;
   version: string;
   createdBy: string;
+  noWordsForStudying: string;
 }
 
 export default ILocalizedStrings;

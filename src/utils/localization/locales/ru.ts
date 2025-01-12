@@ -37,6 +37,7 @@ const ru: ILocalizedStrings = {
   unlearnedWords: 'Невыученные слова',
   version: 'Версия',
   createdBy: 'Разработал: Иван Кузьмук',
+  noWordsForStudying: 'Нет слов для изучения. Сначала добавьте слова.',
 };
 
 export default ru;

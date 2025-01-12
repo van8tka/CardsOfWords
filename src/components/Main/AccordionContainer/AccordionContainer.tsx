@@ -16,7 +16,7 @@ import {MainStackParamList} from '@navigators/types';
 import {RouteScreensEnum} from '@navigators/screens';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {removeTheme} from '@redux/slices/themeOfWordsSlice';
-import {RouteNavEnum} from '@navigators/navigators';
+import useNavigateToStudying from '@hooks/useNavigateToStudying';
 
 type SectionDictionary = {
   dictionary: Dictionary,
@@ -32,6 +32,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   const theme = useThemes();
   const [activeSections, setActiveSections] = useState<number[]>([0]);
   const dispatch = useAppDispatch();
+  const studyingNavigator = useNavigateToStudying();
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
   function onDeleteDictionary(item: Dictionary){
@@ -47,7 +48,7 @@ function AccordionContainer({sections}: IAccordionContainerProps) {
   }
 
   function onSelectThemeOfWords(themeWords: ThemeOfWords){
-     navigation.navigate(RouteNavEnum.StudyingTabNavigator, { screen: RouteScreensEnum.RepeatWordScreen, params: {idTheme: themeWords.id, title: themeWords.name }});
+    studyingNavigator.navigate(themeWords.id, themeWords.name);
   }
 
   function onEditThemeOfWords(themeWords: ThemeOfWords){
