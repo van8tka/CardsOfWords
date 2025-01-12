@@ -4,7 +4,7 @@ import styles from './styles';
 import {useThemes} from '@utils/themes/ThemeContext';
 import ProgressHeader from '@components/Studying/ProgressHeader/ProgressHeader';
 import log from '@utils/logger';
-import CardComponent, {SwipeDirection} from '@components/Studying/ProgressHeader/Card/CardComponent';
+import CardComponent, {SwipeDirection} from '@components/Studying/Card/CardComponent';
 import {useAppDispatch, useAppSelector} from '@hooks/reduxCommonHooks';
 import LeftRightEditHeader from '@primitives/ui/CustomHeader/LeftRightEditHeader';
 import {updateWord} from '@redux/slices/wordSlice';

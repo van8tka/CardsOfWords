@@ -44,9 +44,9 @@ function CardComponent({visibleWord, onSwipe}: ICardComponentProps) {
 
       if (Math.abs(translationX) > Math.abs(translationY)) {
         opacity.value = withSpring(0, { duration: 200 }); // Скрываем карточку
-        if (translationX < -100) {
+        if (translationX < -50) {
           runOnJS(onSwipe)(SwipeDirection.left);
-        } else if (translationX > 100) {
+        } else if (translationX > 50) {
           runOnJS(onSwipe)(SwipeDirection.right);
         }
         // Появление карточки в центре
@@ -56,11 +56,11 @@ function CardComponent({visibleWord, onSwipe}: ICardComponentProps) {
         scale.value = withSpring(1, { duration: 1200 });
       } else {
 
-         if (translationY < -100) {
-            rotateX.value = withSpring(rotateX.value + 360, { duration: 3500 });
+         if (translationY < -50) {
+            rotateX.value = withSpring(rotateX.value + 180, { duration: 3500 });
             runOnJS(onSwipe)(SwipeDirection.up);
-          } else if (translationY > 100) {
-            rotateX.value = withSpring(rotateX.value - 360, { duration: 3500 });
+          } else if (translationY > 50) {
+            rotateX.value = withSpring(rotateX.value - 180, { duration: 3500 });
             runOnJS(onSwipe)(SwipeDirection.down);
           }
           // Возвращаем на место
@@ -83,13 +83,23 @@ function CardComponent({visibleWord, onSwipe}: ICardComponentProps) {
     };
   });
 
+  const textCancelAnimationStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        { rotateX: `${-rotateX.value}deg` },
+      ],
+    };
+  });
+
   return (
     <View style={styles(theme).container}>
       <GestureDetector gesture={gesture}>
         <Animated.View style={[styles(theme).card, animatedStyle]}>
+          <Animated.View style={textCancelAnimationStyle}>
           <Text style={styles(theme).text}>{visibleWord.text || ''}</Text>
           {visibleWord.transcription && <Text style={styles(theme).text}>{visibleWord.transcription}</Text>}
-        </Animated.View>
+            </Animated.View>
+          </Animated.View>
       </GestureDetector>
     </View>
   );
