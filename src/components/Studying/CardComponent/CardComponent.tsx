@@ -8,7 +8,7 @@ import Animated, {
   useAnimatedStyle,
   withSpring, runOnJS,
 } from 'react-native-reanimated';
-import {IVisibleWordModel} from '@components/Studying/RepeatWord/RepeatWordScreen';
+import {IVisibleWordModel} from '@components/Studying/RepeatWordScreen/RepeatWordScreen';
 
 export enum SwipeDirection {
   left,

@@ -2,7 +2,6 @@ import {useLocalization} from '@utils/localization/LocalizationContext';
 import {View} from 'react-native';
 import React from 'react';
 import {useThemes} from '@utils/themes/ThemeContext';
-import styles from '@components/WordForm/styles';
 import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
 import InputWordsForm from '@components/WordForm/InputWordsForm/InputWordsForm';
 import Word from '@models/Words';
@@ -10,6 +9,7 @@ import {useAppDispatch} from '@hooks/reduxCommonHooks';
 import {updateWord} from '@redux/slices/wordSlice';
 import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import {useNavigation} from '@react-navigation/native';
+import {appStyles} from '../../../App.styles';
 
 // @ts-ignore
 function WordEditScreen({route}) {
@@ -27,7 +27,7 @@ function WordEditScreen({route}) {
   }
 
   return (
-    <View style={styles(theme).container}>
+    <View style={appStyles(theme).screenContainer}>
       <LeftCommonHeader title={localization.editWord} />
       <InputWordsForm word={word} onSubmitForm={onEditWord}/>
     </View>

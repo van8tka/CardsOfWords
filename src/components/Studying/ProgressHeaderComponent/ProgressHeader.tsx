@@ -2,8 +2,8 @@ import {View} from 'react-native';
 import React from 'react';
 import {useThemes} from '@utils/themes/ThemeContext';
 import styles from './styles';
-import CountWordsComponent from '@components/Studying/ProgressHeader/CountWords/CountWordsComponent';
-import SpeechButton from '@components/Studying/ProgressHeader/SpeechButton/SpeechButton';
+import CountWordsComponent from '@components/Studying/ProgressHeaderComponent/CountWords/CountWordsComponent';
+import SpeechButton from '@components/Studying/ProgressHeaderComponent/SpeechButton/SpeechButton';
 
 interface IProgressHeaderProps {
   allWords: number,

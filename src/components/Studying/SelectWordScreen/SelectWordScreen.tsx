@@ -1,13 +1,17 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import styles from '@components/ListWords/styles';
 import {useThemes} from '@utils/themes/ThemeContext';
+import {appStyles} from '../../../../App.styles';
 
+// @ts-ignore
 function SelectWordScreen({route}) {
   console.log('+++ SelectWordScreen.route: ', route);
   const theme = useThemes();
-  return <View style={styles(theme).container}>
-    <Text>{'Select Word Screen'}</Text></View>;
+  return (
+    <View style={appStyles(theme).screenContainer}>
+      <Text>{'Select Word Screen'}</Text>
+    </View>
+  );
 }
 
 export default SelectWordScreen;

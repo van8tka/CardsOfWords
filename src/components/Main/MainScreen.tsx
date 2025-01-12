@@ -3,7 +3,6 @@ import log from '@utils/logger.ts';
 import React from 'react';
 import MainFloatingBtnContainer from '@components/Main/FloatingBtnContainer/MainFloatingBtnContainer';
 import AccordionContainer from '@components/Main/AccordionContainer/AccordionContainer';
-import styles from '@components/Main/styles';
 import {useThemes} from '@utils/themes/ThemeContext';
 import {useAppSelector} from '@hooks/reduxCommonHooks';
 import Dictionary from '@models/Dictionary';
@@ -12,6 +11,7 @@ import {RouteScreensEnum} from '@navigators/screens';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {MainStackParamList} from '@navigators/types';
 import ThemeOfWords from '@models/ThemeOfWords';
+import {appStyles} from '../../../App.styles';
 
 function MainScreen() {
 
@@ -28,7 +28,7 @@ function MainScreen() {
   });
 
   return (
-    <View style={styles(theme).container}>
+    <View style={appStyles(theme).screenContainer}>
       <AccordionContainer sections={sections} />
       <MainFloatingBtnContainer
         theme={theme}

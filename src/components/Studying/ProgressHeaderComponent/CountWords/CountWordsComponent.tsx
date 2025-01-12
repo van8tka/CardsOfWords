@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import styles from '@components/Studying/ProgressHeader/CountWords/styles';
+import styles from '@components/Studying/ProgressHeaderComponent/CountWords/styles';
 import React from 'react';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import {useThemes} from '@utils/themes/ThemeContext';

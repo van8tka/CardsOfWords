@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import styles from './styles';
 import {useThemes} from '@utils/themes/ThemeContext';
-import ProgressHeader from '@components/Studying/ProgressHeader/ProgressHeader';
+import ProgressHeader from '@components/Studying/ProgressHeaderComponent/ProgressHeader';
 import log from '@utils/logger';
-import CardComponent, {SwipeDirection} from '@components/Studying/Card/CardComponent';
+import CardComponent, {SwipeDirection} from '@components/Studying/CardComponent/CardComponent';
 import {useAppDispatch, useAppSelector} from '@hooks/reduxCommonHooks';
 import LeftRightEditHeader from '@primitives/ui/CustomHeader/LeftRightEditHeader';
 import {updateWord} from '@redux/slices/wordSlice';
 import Tts from 'react-native-tts';
+import {appStyles} from '../../../../App.styles';
 
 export interface IVisibleWordModel {
   text: string;
@@ -119,7 +120,7 @@ const speechLanguage = 'en-US';
  }
 
   return  (
-    <View style={styles(theme).container}>
+    <View style={appStyles(theme).screenContainer}>
       <LeftRightEditHeader title={title} onPressRight={()=>{}}/>
       <View style={styles(theme).body}>
         <ProgressHeader

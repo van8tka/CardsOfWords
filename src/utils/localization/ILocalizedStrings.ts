@@ -33,6 +33,8 @@ interface ILocalizedStrings {
   allWords: string;
   learnedWords: string;
   unlearnedWords: string;
+  version: string;
+  createdBy: string;
 }
 
 export default ILocalizedStrings;

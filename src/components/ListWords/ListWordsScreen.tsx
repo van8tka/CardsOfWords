@@ -3,7 +3,6 @@ import React from 'react';
 import LeftCommonHeader from '@primitives/ui/CustomHeader/LeftCommonHeader';
 import {useAppDispatch, useAppSelector} from '@hooks/reduxCommonHooks';
 import {useThemes} from '@utils/themes/ThemeContext';
-import styles from '@components/ListWords/styles';
 import Word from '@models/Words';
 import {removeWord} from '@redux/slices/wordSlice';
 import {useNavigation} from '@react-navigation/native';
@@ -14,6 +13,7 @@ import WordsContainer from '@components/ListWords/WordsContainer/WordsContainer'
 import WordsFloatingBtnContainer from '@components/ListWords/FloatingBtnContainer/WordsFloatingBtnContainer';
 import {useImportFromFile} from '@hooks/useImportFromFile';
 import {RouteNavEnum} from '@navigators/navigators';
+import {appStyles} from '../../../App.styles';
 
 // @ts-ignore
 function ListWordsScreen({route}) {
@@ -46,7 +46,7 @@ function ListWordsScreen({route}) {
 
 
   return (
-    <View style={styles(theme).container}>
+    <View style={appStyles(theme).screenContainer}>
       <LeftCommonHeader title={title}/>
       <WordsContainer
         words={words.filter(item => item.idTheme === idTheme)} onDelete={onDeleteWord}

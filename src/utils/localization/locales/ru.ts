@@ -35,6 +35,8 @@ const ru: ILocalizedStrings = {
   allWords: 'Все слова',
   learnedWords: 'Выученные слова',
   unlearnedWords: 'Невыученные слова',
+  version: 'Версия',
+  createdBy: 'Разработал: Иван Кузьмук',
 };
 
 export default ru;

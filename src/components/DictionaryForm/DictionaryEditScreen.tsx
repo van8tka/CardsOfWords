@@ -10,7 +10,7 @@ import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import Dictionary from '@models/Dictionary';
 import InputDictionary from '@components/DictionaryForm/InputDictionary/InputDictionary';
 import {useThemes} from '@utils/themes/ThemeContext';
-import styles from './styles';
+import {appStyles} from '../../../App.styles';
 
 // @ts-ignore
 const DictionaryEditScreen = ({route}) => {
@@ -37,7 +37,7 @@ const DictionaryEditScreen = ({route}) => {
   }
 
   return (
-    <View style={styles(theme).container}>
+    <View style={appStyles(theme).screenContainer}>
       <LeftRightSuccessHeader title={localization.editDictionary} onPressRight={onPressContinue} />
       <InputDictionary text={text} setText={setText} placeholder={localization.dictionaryPlaceholder} />
     </View>

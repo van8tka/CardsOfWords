@@ -1,9 +1,9 @@
 import React, {useMemo} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {RouteScreensEnum} from '@navigators/screens';
-import RepeatWordScreen from '@components/Studying/RepeatWord/RepeatWordScreen';
-import SelectWordScreen from '@components/Studying/SelectWord/SelectWordScreen';
-import WriteWordScreen from '@components/Studying/WriteWord/WriteWordScreen';
+import RepeatWordScreen from '@components/Studying/RepeatWordScreen/RepeatWordScreen';
+import SelectWordScreen from '@components/Studying/SelectWordScreen/SelectWordScreen';
+import WriteWordScreen from '@components/Studying/WriteWordScreen/WriteWordScreen';
 import {useThemes} from '@utils/themes/ThemeContext';
 import FlipIconDark from '@assets/icons/dark/flip_icon.svg';
 import FlipIconLight from '@assets/icons/light/flip_icon.svg';

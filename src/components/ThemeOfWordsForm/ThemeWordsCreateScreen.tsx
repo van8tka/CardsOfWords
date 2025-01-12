@@ -9,7 +9,7 @@ import {ToastTypeEnum, useToast} from '@utils/toast/ToastContext';
 import {addTheme} from '@redux/slices/themeOfWordsSlice';
 import InputThemeWords from '@components/ThemeOfWordsForm/InputThemeWords/InputThemeWords';
 import {useThemes} from '@utils/themes/ThemeContext';
-import styles from './styles';
+import {appStyles} from '../../../App.styles';
 
 // @ts-ignore
 function ThemeWordsCreateScreen({route}) {
@@ -35,7 +35,7 @@ function ThemeWordsCreateScreen({route}) {
   }
 
   return (
-    <View style={styles(theme).container}>
+    <View style={appStyles(theme).screenContainer}>
       <LeftRightSuccessHeader title={localization.addThemeWords} onPressRight={onPressContinue} />
       <InputThemeWords text={text} setText={setText} placeholder={localization.themeWordsPlaceholder} />
     </View>
