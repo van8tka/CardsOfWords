@@ -8,6 +8,7 @@ import CardComponent, {SwipeDirection} from '@components/Studying/Card/CardCompo
 import {useAppDispatch, useAppSelector} from '@hooks/reduxCommonHooks';
 import LeftRightEditHeader from '@primitives/ui/CustomHeader/LeftRightEditHeader';
 import {updateWord} from '@redux/slices/wordSlice';
+import Tts from 'react-native-tts';
 
 export interface IVisibleWordModel {
   text: string;
@@ -19,15 +20,22 @@ function RepeatWordScreen({route}) {
   log.debug('RepeatWordScreen', 'render');
   const idTheme = route?.params?.idTheme;
   const title = route?.params?.title || '';
+
   const theme = useThemes();
   const dispatch = useAppDispatch();
+
   const words = useAppSelector(state => state.words.words.filter(item => item.idTheme === idTheme));
 
-  //todo kuzmuk need get from state
   const allWordsCount = words?.length ?? 0;
   const learnedWordsCount = words?.filter(item => item.isLearned)?.length ?? 0;
   const unlearnedWordsCount = allWordsCount - learnedWordsCount;
-  const speechLanguage = 'en-US';
+
+//todo kuzmuk need get from state
+const speechLanguage = 'en-US';
+
+  useEffect(() => {
+    Tts.setDefaultLanguage(speechLanguage);
+  }, []);
 
   const [currentIndexWord, setCurrentIndexWord] = useState(0);
   const [currentVisibleWord, setCurrentVisibleWord] = useState<IVisibleWordModel>({
@@ -55,8 +63,14 @@ function RepeatWordScreen({route}) {
     }
   }
 
+  function onSpeechWord(){
+    if(isAvailableWord) {
+      Tts.speak(words[currentIndexWord]?.foreign);
+    }
+  }
+
   useEffect(() => {
-    if(currentIndexWord >= 0 && currentIndexWord < words.length){
+    if(isAvailableWord){
       const word = words[currentIndexWord];
       log.info('RepeatWordScreen', `showTranslation: ${showTranslation}; word: ${JSON.stringify(word)}` );
       if(showTranslation){
@@ -72,7 +86,7 @@ function RepeatWordScreen({route}) {
   }, [showTranslation]);
 
   useEffect(() => {
-    if(currentIndexWord >= 0 && currentIndexWord < words.length) {
+    if(isAvailableWord) {
       const word = words[currentIndexWord];
       log.info('RepeatWordScreen', 'currentWord:', JSON.stringify(word));
       if (showTranslation) {
@@ -83,6 +97,8 @@ function RepeatWordScreen({route}) {
       setCurrentVisibleWord({text: word.foreign, transcription: word.transcription});
     }
   }, [currentIndexWord]);
+
+  const isAvailableWord = currentIndexWord >= 0 && currentIndexWord < words.length;
 
   function handleSwipe(direction: SwipeDirection) {
    switch (direction) {
@@ -111,7 +127,7 @@ function RepeatWordScreen({route}) {
           learnedWords={learnedWordsCount}
           unlearnedWords={unlearnedWordsCount}
           speechLanguage={speechLanguage}
-          onSpeech={()=> console.log('+++++ SPEACH PRESS')}
+          onSpeech={onSpeechWord}
         />
         <CardComponent visibleWord={currentVisibleWord} onSwipe={handleSwipe}/>
       </View>
