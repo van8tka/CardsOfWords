@@ -6,7 +6,6 @@ import {
 } from '@react-navigation/drawer';
 import {RouteScreensEnum} from './screens';
 import AboutContainer from '@components/About/AboutContainer';
-import SettingsScreen from '@components/Settings/SettingsScreen';
 import React from 'react';
 import {RouteNavEnum} from './navigators';
 import MainStackNavigator from './MainStackNavigator';
@@ -14,6 +13,7 @@ import {useLocalization} from '@utils/localization/LocalizationContext';
 import {useThemes} from '@utils/themes/ThemeContext';
 import {vs} from 'react-native-size-matters';
 import DrawerCustomHeader from '@primitives/ui/CustomHeader/DrawerCustomHeader';
+import SettingsStackNavigator from '@navigators/SettingsStackNavigator';
 
 
 const Drawer = createDrawerNavigator();
@@ -70,14 +70,14 @@ const DrawerNavigator = () => {
         options={{title:localizedStrings.appName, headerShown: false}}
       />
       <Drawer.Screen
+        name={RouteNavEnum.SettingsStackNavigator}
+        component={SettingsStackNavigator}
+        options={{title:localizedStrings.settingsScreen, headerShown: false}}
+      />
+      <Drawer.Screen
         name={RouteScreensEnum.AboutScreen}
         component={AboutContainer}
         options={{title:localizedStrings.aboutScreen}}
-      />
-      <Drawer.Screen
-        name={RouteScreensEnum.SettingsScreen}
-        component={SettingsScreen}
-        options={{title:localizedStrings.settingsScreen}}
       />
     </Drawer.Navigator>
   );

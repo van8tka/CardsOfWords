@@ -8,11 +8,16 @@ import {useAppDispatch, useAppSelector} from '@hooks/reduxCommonHooks';
 import {switchSuggestTranscriptKeyboard} from '@redux/slices/appSlice';
 import {useLocalization} from '@utils/localization/LocalizationContext';
 import TitleDescriptionComponent from '@primitives/ui/TitleDescriptionComponent/TitleDescriptionComponent';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {MainStackParamList} from '@navigators/types';
+import {RouteScreensEnum} from '@navigators/screens';
 
 function SettingsScreen() {
   const theme = useThemes();
   const dispatch = useAppDispatch();
   const locale = useLocalization();
+  const navigator = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const isTranscriptKeyboard = useAppSelector(state => state.app.isTranscriptKeyboard);
 
 
@@ -31,7 +36,7 @@ function SettingsScreen() {
       <TitleDescriptionComponent
       title={locale.voiceLanguage}
       description={locale.chooseVoiceLanguage}
-      onClick={()=>{console.log(locale.chooseVoiceLanguage)}}
+      onClick={()=>{navigator.navigate(RouteScreensEnum.VoiceLanguagesScreen)}}
       />
     </View>
   );

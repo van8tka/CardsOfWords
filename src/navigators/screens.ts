@@ -12,4 +12,5 @@ export enum RouteScreensEnum {
   RepeatWordScreen = 'RepeatWordScreen',
   SelectWordScreen = 'SelectWordScreen',
   WriteWordScreen = 'WriteWordScreen',
+  VoiceLanguagesScreen = 'VoiceLanguagesScreen',
 }
