@@ -22,6 +22,7 @@ function RepeatWordScreen({route}) {
   const idTheme = route?.params?.idTheme;
   const title = route?.params?.title || '';
 
+   const speechLanguage = useAppSelector(state => state.app.voiceLanguage);
   const theme = useThemes();
   const dispatch = useAppDispatch();
 
@@ -31,11 +32,8 @@ function RepeatWordScreen({route}) {
   const learnedWordsCount = words?.filter(item => item.isLearned)?.length ?? 0;
   const unlearnedWordsCount = allWordsCount - learnedWordsCount;
 
-//todo kuzmuk need get from state
-const speechLanguage = 'en-US';
-
   useEffect(() => {
-    Tts.setDefaultLanguage(speechLanguage);
+    Tts.setDefaultLanguage(speechLanguage?.language || 'en-US');
   }, []);
 
   const [currentIndexWord, setCurrentIndexWord] = useState(0);
@@ -127,7 +125,7 @@ const speechLanguage = 'en-US';
           allWords={allWordsCount}
           learnedWords={learnedWordsCount}
           unlearnedWords={unlearnedWordsCount}
-          speechLanguage={speechLanguage}
+          speechLanguage={speechLanguage?.language || 'en-US'}
           onSpeech={onSpeechWord}
         />
         <CardComponent visibleWord={currentVisibleWord} onSwipe={handleSwipe}/>

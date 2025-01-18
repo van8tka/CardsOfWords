@@ -1,8 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import IVoiceLang from '@models/IVoiceLang';
 
 const initialState = {
   isTranscriptKeyboard: true,
-  voiceLanguage: 'en-US',
+  voiceLanguage: {} as IVoiceLang,
 };
 
 const appSlice = createSlice({
@@ -12,7 +13,7 @@ const appSlice = createSlice({
     switchSuggestTranscriptKeyboard: (state, action: PayloadAction<boolean>) => {
       state.isTranscriptKeyboard = action.payload;
     },
-    setVoiceLanguage: (state, action: PayloadAction<string>) => {
+    setVoiceLanguage: (state, action: PayloadAction<IVoiceLang>) => {
       state.voiceLanguage = action.payload;
     },
   },

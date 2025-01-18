@@ -5,7 +5,7 @@ import {appStyles} from '../../../../App.styles';
 
 // @ts-ignore
 function SelectWordScreen({route}) {
-  console.log('+++ SelectWordScreen.route: ', route);
+
   const theme = useThemes();
   return (
     <View style={appStyles(theme).screenContainer}>

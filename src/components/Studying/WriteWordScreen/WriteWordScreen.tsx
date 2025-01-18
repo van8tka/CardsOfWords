@@ -5,7 +5,7 @@ import {appStyles} from '../../../../App.styles';
 
 // @ts-ignore
 function WriteWordScreen({route}) {
-  console.log('+++ WriteWordScreen.route: ', route);
+
   const theme = useThemes();
   return (
     <View style={appStyles(theme).screenContainer}>
