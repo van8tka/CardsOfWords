@@ -1,6 +1,8 @@
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 
 const ru: ILocalizedStrings = {
+  isSuggestTranscriptKeyboard: 'Клавиатура для ввода транскрипций',
+  suggest: 'Показывать клавиатуру с дополнительными символами при вводе транскрипции',
   addWordToast: 'Новое слово успешно добавлено',
   editWordToast: 'Слово изменено',
   foreignWord: 'Иностранное слово',

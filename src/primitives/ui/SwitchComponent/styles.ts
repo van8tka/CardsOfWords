@@ -16,11 +16,12 @@ const styles = (theme: ITheme) => {
       marginRight: '16@vs',
     },
     header: {
-      fontSize: '16@vs',
+      fontSize: '14@vs',
       fontWeight: 'bold',
       color: theme.textSecondaryColor,
     },
     description: {
+      marginTop: '8@vs',
       fontSize: '14@vs',
       color: theme.textSecondaryColor,
     },

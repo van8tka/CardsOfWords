@@ -11,18 +11,19 @@ import styles from '@components/WordForm/InputWordsForm/styles';
 import PrimaryButton from '@primitives/ui/PrimaryButton/PrimaryButton';
 import TranscriptKeyboard from '@primitives/ui/TranscriptKeyboard/TranscriptKeyboard';
 import log from '@utils/logger';
+import {useAppSelector} from '@hooks/reduxCommonHooks';
 
-const maxLenghtWords = 200;
+const maxLengthWords = 300;
 
 const schema = (locale: ILocalizedStrings) => Yup.object().shape({
   foreignWord: Yup.string()
     .required(locale.requiredForeign)
-    .max(maxLenghtWords, locale.validationWordMax),
+    .max(maxLengthWords, locale.validationWordMax),
   translateWord: Yup.string()
     .required(locale.requiredTranslate)
-    .max(maxLenghtWords, locale.validationWordMax),
+    .max(maxLengthWords, locale.validationWordMax),
   transcriptionWord: Yup.string()
-    .max(maxLenghtWords, locale.validationWordMax),
+    .max(maxLengthWords, locale.validationWordMax),
 });
 
 type FormData = {
@@ -41,9 +42,7 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
   log.info('InputWordsForm', 'render');
   const theme = useThemes();
   const locale = useLocalization();
-
-  //todo need use appSlice with settings
-  const isVisibleTranscriptKeyboard = true;
+  const isVisibleTranscriptKeyboard = useAppSelector(state => state.app.isTranscriptKeyboard);
 
   const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema(locale)),
@@ -105,7 +104,7 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            maxLength={maxLenghtWords}
+            maxLength={maxLengthWords}
             onFocus={onFocusWordInput}
           />
         )}
@@ -122,7 +121,7 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            maxLength={maxLenghtWords}
+            maxLength={maxLengthWords}
             onFocus={onFocusWordInput}
           />
         )}
@@ -140,7 +139,7 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            maxLength={maxLenghtWords}
+            maxLength={maxLengthWords}
           />
         )}
       />}
@@ -149,7 +148,7 @@ const InputWordsForm: React.FC<InputWordsFormProps> = ({idTheme, word, onSubmitF
           style={styles(theme).input}
           placeholder={locale.transcriptionWord}
           value={transcript}
-          maxLength={maxLenghtWords}
+          maxLength={maxLengthWords}
           onFocus={onFocusTranscript}
         />}
 

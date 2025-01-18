@@ -13,6 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import appSlice from '@redux/slices/appSlice';
 
 const persistConfig = {
   key: 'root',
@@ -22,10 +23,11 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-    dictionary: dictionarySlice,
-    themeOfWords: themeOfWordsSlice,
-    words: wordSlice,
-  });
+  app: appSlice,
+  dictionary: dictionarySlice,
+  themeOfWords: themeOfWordsSlice,
+  words: wordSlice,
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

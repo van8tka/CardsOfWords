@@ -1,18 +1,19 @@
-//todo need update it and added to store
-// import {createSlice} from '@reduxjs/toolkit';
-//
-// const initialState = {
-//
-// };
-//
-// const appSlice = createSlice({
-//   name: 'app',
-//   initialState: initialState,
-//   reducers: {
-//
-//   },
-// });
-//
-// export const { } = appSlice.actions;
-//
-// export default appSlice.reducer;
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+
+const initialState = {
+  isTranscriptKeyboard: true,
+};
+
+const appSlice = createSlice({
+  name: 'app',
+  initialState: initialState,
+  reducers: {
+    switchSuggestTranscriptKeyboard: (state, action: PayloadAction<boolean>) => {
+      state.isTranscriptKeyboard = action.payload;
+    },
+  },
+});
+
+export const { switchSuggestTranscriptKeyboard } = appSlice.actions;
+
+export default appSlice.reducer;

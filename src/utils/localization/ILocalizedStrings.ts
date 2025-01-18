@@ -36,6 +36,8 @@ interface ILocalizedStrings {
   version: string;
   createdBy: string;
   noWordsForStudying: string;
+  isSuggestTranscriptKeyboard: string;
+  suggest: string;
 }
 
 export default ILocalizedStrings;
