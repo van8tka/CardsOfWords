@@ -1,7 +1,9 @@
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 
 const en: ILocalizedStrings = {
-  isSuggestTranscriptKeyboard: 'Keyboard for transcription',
+  chooseVoiceLanguage: 'Choose voice language',
+  voiceLanguage: 'Voice language',
+  isSuggestTranscriptKeyboard: 'Transcription keyboard',
   suggest: 'Show keyboard with special symbols for transcription',
   addWordToast: 'Word successfully added',
   editWordToast: 'Word successfully updated',

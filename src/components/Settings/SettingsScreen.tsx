@@ -7,6 +7,7 @@ import styles from './styles';
 import {useAppDispatch, useAppSelector} from '@hooks/reduxCommonHooks';
 import {switchSuggestTranscriptKeyboard} from '@redux/slices/appSlice';
 import {useLocalization} from '@utils/localization/LocalizationContext';
+import TitleDescriptionComponent from '@primitives/ui/TitleDescriptionComponent/TitleDescriptionComponent';
 
 function SettingsScreen() {
   const theme = useThemes();
@@ -26,6 +27,11 @@ function SettingsScreen() {
         description={locale.suggest}
         isSwitching={isTranscriptKeyboard}
         onSwitchChange={onChangeSuggestionKeyboardTranscription}
+      />
+      <TitleDescriptionComponent
+      title={locale.voiceLanguage}
+      description={locale.chooseVoiceLanguage}
+      onClick={()=>{console.log(locale.chooseVoiceLanguage)}}
       />
     </View>
   );

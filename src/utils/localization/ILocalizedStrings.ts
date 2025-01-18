@@ -38,6 +38,8 @@ interface ILocalizedStrings {
   noWordsForStudying: string;
   isSuggestTranscriptKeyboard: string;
   suggest: string;
+  voiceLanguage: string;
+  chooseVoiceLanguage: string;
 }
 
 export default ILocalizedStrings;

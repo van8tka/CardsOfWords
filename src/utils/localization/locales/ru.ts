@@ -1,7 +1,9 @@
 import ILocalizedStrings from '@utils/localization/ILocalizedStrings';
 
 const ru: ILocalizedStrings = {
-  isSuggestTranscriptKeyboard: 'Клавиатура для ввода транскрипций',
+  chooseVoiceLanguage: 'Выберите язык озвучки',
+  voiceLanguage: 'Язык озвучки',
+  isSuggestTranscriptKeyboard: 'Клавиатура транскрипций',
   suggest: 'Показывать клавиатуру с дополнительными символами при вводе транскрипции',
   addWordToast: 'Новое слово успешно добавлено',
   editWordToast: 'Слово изменено',
