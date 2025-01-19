@@ -19,6 +19,7 @@ const styles = (theme: ITheme) => {
       alignItems: 'center',
     },
     text: {
+      alignSelf: 'center',
       paddingHorizontal: '8@vs',
       fontSize: '22@vs',
       color: theme.textSecondaryColor,

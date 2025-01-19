@@ -10,6 +10,10 @@ import LeftRightEditHeader from '@primitives/ui/CustomHeader/LeftRightEditHeader
 import {updateWord} from '@redux/slices/wordSlice';
 import Tts from 'react-native-tts';
 import {appStyles} from '../../../../App.styles';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {MainStackParamList} from '@navigators/types';
+import {RouteScreensEnum} from '@navigators/screens';
 
 export interface IVisibleWordModel {
   text: string;
@@ -22,10 +26,11 @@ function RepeatWordScreen({route}) {
   const idTheme = route?.params?.idTheme;
   const title = route?.params?.title || '';
 
-   const speechLanguage = useAppSelector(state => state.app.voiceLanguage);
+  const navigator = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const theme = useThemes();
   const dispatch = useAppDispatch();
 
+  const speechLanguage = useAppSelector(state => state.app.voiceLanguage);
   const words = useAppSelector(state => state.words.words.filter(item => item.idTheme === idTheme));
 
   const allWordsCount = words?.length ?? 0;
@@ -117,9 +122,13 @@ function RepeatWordScreen({route}) {
    }
  }
 
+ function onNavigateToEditWord(){
+   navigator.navigate(RouteScreensEnum.WordEditScreen, {word: words[currentIndexWord]});
+ }
+
   return  (
     <View style={appStyles(theme).screenContainer}>
-      <LeftRightEditHeader title={title} onPressRight={()=>{}}/>
+      <LeftRightEditHeader title={title} onPressRight={onNavigateToEditWord}/>
       <View style={styles(theme).body}>
         <ProgressHeader
           allWords={allWordsCount}
