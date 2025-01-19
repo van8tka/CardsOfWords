@@ -4,11 +4,13 @@ import {ITheme} from '@utils/themes/ITheme';
 const styles = (theme: ITheme) => {
   return ScaledSheet.create({
     container: {
-
       justifyContent: 'space-between',
       paddingVertical: '16@vs',
       borderBottomWidth: '0.8@vs',
       borderBottomColor: theme.primaryColor,
+    },
+    touchContainer: {
+        flexDirection: 'row',
     },
     header: {
       fontSize: '15@vs',
@@ -17,6 +19,13 @@ const styles = (theme: ITheme) => {
     },
     description: {
       marginTop: '8@vs',
+      fontSize: '13@vs',
+      color: theme.textSecondaryColor,
+    },
+    rightText: {
+      position: 'absolute',
+      right: 0,
+      alignSelf: 'center',
       fontSize: '13@vs',
       color: theme.textSecondaryColor,
     },

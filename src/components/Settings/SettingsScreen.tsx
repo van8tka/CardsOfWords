@@ -19,10 +19,15 @@ function SettingsScreen() {
   const locale = useLocalization();
   const navigator = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const isTranscriptKeyboard = useAppSelector(state => state.app.isTranscriptKeyboard);
+  const voiceLanguage = useAppSelector(state => state.app.voiceLanguage);
 
 
   function onChangeSuggestionKeyboardTranscription(isSuggestion: boolean) {
     dispatch(switchSuggestTranscriptKeyboard(isSuggestion));
+  }
+
+  function onNavigateToVoiceLanguages(){
+    navigator.navigate(RouteScreensEnum.VoiceLanguagesScreen);
   }
 
   return (
@@ -33,11 +38,12 @@ function SettingsScreen() {
         isSwitching={isTranscriptKeyboard}
         onSwitchChange={onChangeSuggestionKeyboardTranscription}
       />
-      <TitleDescriptionComponent
-      title={locale.voiceLanguage}
-      description={locale.chooseVoiceLanguage}
-      onClick={()=>{navigator.navigate(RouteScreensEnum.VoiceLanguagesScreen)}}
-      />
+        <TitleDescriptionComponent
+          title={locale.voiceLanguage}
+          description={locale.chooseVoiceLanguage}
+          rightText={voiceLanguage.language || ''}
+          onClick={onNavigateToVoiceLanguages}
+        />
     </View>
   );
 }
